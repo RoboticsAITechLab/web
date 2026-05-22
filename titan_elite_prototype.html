@@ -102,7 +102,14 @@
             <p id="bmiOut" class="hidden mt-4 text-xs text-center text-amber-200/60"></p>
         </div>
     </section>
-    <footer class="text-center py-10 text-[10px] uppercase tracking-[0.3em] text-amber-900">TITAN Elite Prototype · Gold luxury concept</footer>
+    <section class="px-6 py-14 border-t gold max-w-2xl mx-auto">
+        <h2 class="font-display text-xl gold-text text-center mb-4">TITAN AI Concierge</h2>
+        <textarea id="gym-ai-inline-input" rows="3" placeholder="Executive wellness, private training, invitation…" class="w-full bg-black/50 border gold rounded-sm p-3 text-sm text-amber-100"></textarea>
+        <button type="button" onclick="askGymAIInline()" class="w-full mt-3 gold-bg text-black text-xs font-bold uppercase tracking-widest py-3">Consult Gemini</button>
+        <div id="gym-ai-inline-loader" class="hidden mt-3 text-[10px] text-amber-400/60 text-center uppercase tracking-widest animate-pulse">Concierge processing…</div>
+        <div id="gym-ai-inline-result" class="hidden mt-3 p-4 border gold text-xs text-amber-200/70 max-h-60 overflow-y-auto"></div>
+    </section>
+    <footer class="text-center py-10 text-[10px] uppercase tracking-[0.3em] text-amber-900">TITAN · AI-powered</footer>
     <div id="modal" class="hidden fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4">
         <div class="border-2 border-amber-500/50 bg-[#0c0a08] p-8 max-w-sm w-full rounded-sm">
             <h3 class="font-display text-2xl gold-text mb-2">Private Invitation</h3>
@@ -115,12 +122,22 @@
             <button onclick="closeModal()" class="mt-4 w-full text-[10px] uppercase tracking-wider text-amber-900">Dismiss</button>
         </div>
     </div>
+    <script src="prototype-nav.js"></script>
     <script>
-        const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html',cur:true,{n:'APEX',f:'apex_crossfit_prototype.html'},{n:'NOVA',f:'nova_24x7_prototype.html'},{n:'ELIXIR',f:'elixir_womens_prototype.html'},{n:'VELOCITY',f:'velocity_run_club_prototype.html'}];
-        document.getElementById('proto-nav').innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto text-amber-200/40">'+(NAV.map(i=>i.c?`<span class="gold-text border gold px-2 py-1 rounded-sm">${i.n}</span>`:`<a href="${i.f}" class="hover:text-amber-100 px-2 py-1">${i.n}</a>`).join('<span class="text-amber-900">|</span>'))+'</div>';
+        window.GYM_AI_CONFIG = {
+            brand: 'TITAN', coachTitle: 'TITAN AI Concierge', emoji: '👑', accentClass: 'text-amber-400',
+            systemPrompt: 'You are TITAN AI, executive concierge for a private luxury athletic club in Jaipur. Discreet, premium, bespoke wellness and training. Formal tone, bullets.',
+            welcome: 'Good day. I am TITAN AI concierge — how may I assist your performance goals?',
+            quickPrompts: ['Executive 4-day training split', 'Private chef nutrition outline', 'Recovery protocol for CEOs'],
+            theme: { launcherBg: 'background:linear-gradient(135deg,#d4af37,#b8860b);color:#000', windowClass: 'bg-[#0c0a08] border-amber-900/40 text-amber-50', sendClass: 'background:linear-gradient(135deg,#d4af37,#b8860b);color:#000;font-weight:bold', badgeClass: 'text-amber-400', chipClass: 'border-amber-900/40 text-amber-200/50', inputClass: 'bg-black/60 border border-amber-900/40 text-amber-100', userBubble: 'background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.35)', botBubble: 'background:#0a0908;border:1px solid #78350f', avatar: 'background:linear-gradient(135deg,#d4af37,#b8860b);color:#000' }
+        };
+    </script>
+    <script src="gemini-ai.js"></script>
+    <script>
+        initPrototypeNav('titan_elite_prototype.html', 'gold-text border gold px-2 py-1 rounded-sm', 'hover:text-amber-100 px-2 py-1');
         function openModal(){document.getElementById('modal').classList.remove('hidden')}
         function closeModal(){document.getElementById('modal').classList.add('hidden')}
-        function calcBmi(){const h=+document.getElementById('h').value/100,w=+document.getElementById('w').value;if(!h||!w)return;const b=(w/(h*h)).toFixed(1);const o=document.getElementById('bmiOut');o.classList.remove('hidden');o.textContent='BMI '+b+' — TITAN concierge recommends Executive tier with bespoke programming.';}
+        async function calcBmi(){const h=+document.getElementById('h').value/100,w=+document.getElementById('w').value;if(!h||!w)return;const b=(w/(h*h)).toFixed(1);document.getElementById('bmiOut').classList.remove('hidden');document.getElementById('bmiOut').textContent='BMI '+b;document.getElementById('gym-ai-inline-input').value='BMI '+b+' for an executive member — recommend TITAN tier and bespoke program.';await askGymAIInline();}
     </script>
 </body>
 </html>

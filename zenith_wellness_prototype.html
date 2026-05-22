@@ -74,9 +74,24 @@
             </div>
             <button onclick="calcBmi()" class="w-full bg-zen-sage text-white py-3 rounded-xl font-semibold text-sm">Calculate</button>
             <p id="bmiOut" class="hidden mt-4 text-center text-sm text-stone-600"></p>
+            <button onclick="askGymAIInline(document.getElementById('bmiOut').textContent + ' — create a gentle wellness plan for Jaipur.')" id="gym-ai-inline-btn" class="hidden w-full mt-3 border border-zen-sage text-zen-sage py-2.5 rounded-xl text-xs font-semibold">🤖 Ask ZENITH AI for Plan</button>
         </div>
     </section>
-    <footer class="text-center py-10 text-xs text-stone-400 border-t border-stone-200">ZENITH Wellness Prototype · Light boutique concept</footer>
+    <section class="px-4 py-14 bg-gradient-to-b from-white to-zen-cream border-t border-stone-200">
+        <div class="max-w-2xl mx-auto text-center">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-zen-sage">Gemini AI Live</span>
+            <h2 class="font-display text-2xl text-stone-900 mt-2 mb-4">ZENITH AI Wellness Coach</h2>
+            <textarea id="gym-ai-inline-input" rows="3" placeholder="Ask about yoga, recovery, sauna protocol, or nutrition…" class="w-full border border-stone-200 rounded-2xl p-4 text-sm outline-none focus:border-zen-sage"></textarea>
+            <div class="flex flex-wrap gap-2 justify-center mt-3">
+                <button type="button" onclick="document.getElementById('gym-ai-inline-input').value='7-day beginner wellness routine';askGymAIInline()" class="text-[10px] px-3 py-1.5 rounded-full bg-white border border-stone-200">7-day routine</button>
+                <button type="button" onclick="document.getElementById('gym-ai-inline-input').value='Cold plunge and sauna best practices';askGymAIInline()" class="text-[10px] px-3 py-1.5 rounded-full bg-white border border-stone-200">Recovery tips</button>
+            </div>
+            <button type="button" onclick="askGymAIInline()" class="w-full mt-4 bg-stone-900 text-white py-3 rounded-xl font-semibold text-sm">Send to Gemini</button>
+            <div id="gym-ai-inline-loader" class="hidden mt-4 text-xs text-zen-sage animate-pulse">ZENITH AI is thinking…</div>
+            <div id="gym-ai-inline-result" class="hidden mt-4 p-5 bg-white border border-stone-200 rounded-2xl text-xs text-left text-stone-600 leading-relaxed max-h-64 overflow-y-auto"></div>
+        </div>
+    </section>
+    <footer class="text-center py-10 text-xs text-stone-400 border-t border-stone-200">ZENITH Wellness Prototype · AI-powered</footer>
     <div id="modal" class="hidden fixed inset-0 z-50 bg-stone-900/40 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl">
             <h3 class="font-display text-2xl mb-4">Book Trial</h3>
@@ -88,12 +103,36 @@
             <button onclick="closeModal()" class="mt-3 w-full text-sm text-stone-400">Cancel</button>
         </div>
     </div>
+    <script src="prototype-nav.js"></script>
     <script>
-        const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html',cur:true},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html',{n:'APEX',f:'apex_crossfit_prototype.html'},{n:'NOVA',f:'nova_24x7_prototype.html'},{n:'ELIXIR',f:'elixir_womens_prototype.html'},{n:'VELOCITY',f:'velocity_run_club_prototype.html'}];
-        document.getElementById('proto-nav').innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto">'+(NAV.map(i=>i.c?`<span class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md">${i.n}</span>`:`<a href="${i.f}" class="hover:text-stone-900 px-2 py-1">${i.n}</a>`).join('<span class="text-stone-300">|</span>'))+'</div>';
+        window.GYM_AI_CONFIG = {
+            brand: 'ZENITH',
+            coachTitle: 'ZENITH AI Wellness Coach',
+            emoji: '🌿',
+            accentClass: 'text-emerald-700',
+            systemPrompt: 'You are ZENITH AI, a calm wellness coach at ZENITH Recovery Club in Jaipur. Advise on yoga, sauna, cold plunge, nutrition, and balanced training. Warm, scientific, bullet points.',
+            welcome: 'Namaste! I am ZENITH AI — ask about recovery, yoga flows, or your wellness plan.',
+            quickPrompts: ['Suggest a 7-day wellness routine', 'Best sauna and cold plunge protocol', 'Gentle yoga for desk workers'],
+            theme: {
+                launcherBg: 'background:#6b8f71;color:white',
+                windowClass: 'bg-white/95 border-stone-200 text-stone-800',
+                headerClass: 'bg-stone-50 border-stone-200',
+                badgeClass: 'text-emerald-700',
+                chipClass: 'border-stone-200 text-stone-600',
+                inputClass: 'bg-white border border-stone-200 text-stone-800',
+                sendClass: 'bg-zen-sage text-white',
+                userBubble: 'background:#ecfdf5;border:1px solid #a7f3d0',
+                botBubble: 'background:#fafaf9;border:1px solid #e7e5e4',
+                avatar: 'background:#6b8f71;color:#fff'
+            }
+        };
+    </script>
+    <script src="gemini-ai.js"></script>
+    <script>
+        initPrototypeNav('zenith_wellness_prototype.html', 'text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-1 rounded-md', 'text-stone-500 hover:text-stone-900');
         function openModal(){document.getElementById('modal').classList.remove('hidden')}
         function closeModal(){document.getElementById('modal').classList.add('hidden')}
-        function calcBmi(){const h=+document.getElementById('h').value/100,w=+document.getElementById('w').value;if(!h||!w)return;const b=(w/(h*h)).toFixed(1);const o=document.getElementById('bmiOut');o.classList.remove('hidden');o.textContent='BMI: '+b+' — ZENITH recommends a balanced recovery + strength blend.';}
+        function calcBmi(){const h=+document.getElementById('h').value/100,w=+document.getElementById('w').value;if(!h||!w)return;const b=(w/(h*h)).toFixed(1);const o=document.getElementById('bmiOut');o.classList.remove('hidden');o.textContent='BMI: '+b+' — ZENITH recommends a balanced recovery + strength blend.';document.getElementById('gym-ai-inline-btn').classList.remove('hidden');}
     </script>
 </body>
 </html>

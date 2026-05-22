@@ -90,7 +90,14 @@
             <p id="energyOut" class="text-xs text-purple-700/80 hidden leading-relaxed"></p>
         </div>
     </section>
-    <footer class="text-center py-8 text-xs text-pink-300">ELIXIR Women's Studio Prototype</footer>
+    <section class="px-4 py-14 bg-gradient-to-b from-pink-50 to-white border-t border-pink-100 max-w-2xl mx-auto">
+        <h2 class="font-display text-2xl text-purple-900 text-center mb-4">ELIXIR AI Coach</h2>
+        <textarea id="gym-ai-inline-input" rows="3" placeholder="Cycle-smart training, classes, nutrition…" class="w-full border border-pink-100 rounded-2xl p-4 text-sm"></textarea>
+        <button type="button" onclick="askGymAIInline()" class="w-full mt-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 rounded-xl font-semibold text-sm">Ask Gemini</button>
+        <div id="gym-ai-inline-loader" class="hidden mt-3 text-xs text-pink-500 text-center animate-pulse">ELIXIR AI is preparing guidance…</div>
+        <div id="gym-ai-inline-result" class="hidden mt-3 p-5 bg-white border border-pink-100 rounded-2xl text-xs text-purple-800 max-h-60 overflow-y-auto"></div>
+    </section>
+    <footer class="text-center py-8 text-xs text-pink-300">ELIXIR · AI-powered</footer>
     <div id="modal" class="hidden fixed inset-0 z-50 bg-purple-950/40 flex items-center justify-center p-4">
         <div class="bg-white p-8 max-w-sm w-full rounded-3xl shadow-2xl">
             <h3 class="font-display text-2xl text-purple-900 mb-4">Free Week Pass</h3>
@@ -104,10 +111,20 @@
     </div>
     <script src="prototype-nav.js"></script>
     <script>
+        window.GYM_AI_CONFIG = {
+            brand: 'ELIXIR', coachTitle: 'ELIXIR AI Coach', emoji: '✨', accentClass: 'text-pink-600',
+            systemPrompt: 'You are ELIXIR AI, women-only fitness coach in Jaipur. Hormone-aware, supportive, pre/post natal safe advice. Warm bullets.',
+            welcome: 'Hi love! Ask about classes, cycle-synced training, or nutrition.',
+            quickPrompts: ['Workout for high energy day', 'Mama fit safe exercises', 'Glute focus weekly plan'],
+            theme: { launcherBg: 'background:linear-gradient(135deg,#ec4899,#a855f7);color:#fff', windowClass: 'bg-white/95 border-pink-200 text-purple-900', sendClass: 'bg-gradient-to-r from-pink-500 to-purple-500 text-white', badgeClass: 'text-pink-600', chipClass: 'border-pink-200 text-purple-600', inputClass: 'bg-white border border-pink-100 text-purple-900', userBubble: 'background:#fce7f3;border:1px solid #f9a8d4', botBubble: 'background:#faf5ff;border:1px solid #e9d5ff', avatar: 'background:linear-gradient(135deg,#ec4899,#a855f7);color:#fff' }
+        };
+    </script>
+    <script src="gemini-ai.js"></script>
+    <script>
         initPrototypeNav('elixir_womens_prototype.html', 'text-pink-600 bg-pink-50 border border-pink-200 px-2 py-1 rounded-md', 'text-purple-400 hover:text-purple-900');
         function openModal(){document.getElementById('modal').classList.remove('hidden')}
         function closeModal(){document.getElementById('modal').classList.add('hidden')}
-        function setEnergy(l){var m={high:'ELIXIR suggests: Strong Her or glute lab — go heavy today!',mid:'Perfect for Pilates Flow or moderate circuits.',low:'Restore yoga + walk — honor your cycle, queen.'};document.getElementById('energyOut').classList.remove('hidden');document.getElementById('energyOut').textContent=m[l];}
+        async function setEnergy(l){var m={high:'High energy day',mid:'Steady energy',low:'Low energy / restore day'};document.getElementById('energyOut').classList.remove('hidden');document.getElementById('gym-ai-inline-input').value='I have '+m[l]+' — suggest ELIXIR studio classes and training for a woman in Jaipur.';await askGymAIInline();}
     </script>
 </body>
 </html>

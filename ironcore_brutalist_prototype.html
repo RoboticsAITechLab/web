@@ -87,7 +87,14 @@
             <p id="bmiOut" class="hidden mt-4 text-sm text-yellow-200 text-center font-medium"></p>
         </div>
     </section>
-    <footer class="text-center py-8 text-[10px] uppercase tracking-widest text-zinc-600">IRON CORE Brutalist Prototype</footer>
+    <section class="px-4 py-14 border-t-2 border-yellow-500/30 max-w-2xl mx-auto">
+        <h2 class="font-display text-3xl text-yellow-400 text-center uppercase mb-4">IRON AI Coach</h2>
+        <textarea id="gym-ai-inline-input" rows="3" placeholder="PROGRAMMING REQUEST…" class="w-full bg-black border-2 border-yellow-500/50 p-3 text-sm uppercase"></textarea>
+        <button type="button" onclick="askGymAIInline()" class="w-full mt-3 bg-yellow-400 text-black font-bold uppercase py-3 text-sm">RUN GEMINI</button>
+        <div id="gym-ai-inline-loader" class="hidden mt-3 text-xs text-yellow-400 text-center animate-pulse">LOADING…</div>
+        <div id="gym-ai-inline-result" class="hidden mt-3 p-4 border-2 border-yellow-500/40 text-xs text-yellow-100 max-h-60 overflow-y-auto"></div>
+    </section>
+    <footer class="text-center py-8 text-[10px] uppercase tracking-widest text-zinc-600">IRON CORE · AI-powered</footer>
     <div id="modal" class="hidden fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
         <div class="border-2 border-yellow-400 bg-black p-8 max-w-sm w-full">
             <h3 class="font-display text-4xl text-yellow-400 mb-4">JOIN NOW</h3>
@@ -99,12 +106,22 @@
             <button onclick="closeModal()" class="mt-3 w-full text-xs text-zinc-500 uppercase">Close</button>
         </div>
     </div>
+    <script src="prototype-nav.js"></script>
     <script>
-        const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html',cur:true},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html',{n:'APEX',f:'apex_crossfit_prototype.html'},{n:'NOVA',f:'nova_24x7_prototype.html'},{n:'ELIXIR',f:'elixir_womens_prototype.html'},{n:'VELOCITY',f:'velocity_run_club_prototype.html'}];
-        document.getElementById('proto-nav').innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto text-zinc-500">'+(NAV.map(i=>i.c?`<span class="text-yellow-400 border border-yellow-500/50 px-2 py-1">${i.n}</span>`:`<a href="${i.f}" class="hover:text-yellow-400 px-2 py-1">${i.n}</a>`).join('<span class="text-zinc-700">|</span>'))+'</div>';
+        window.GYM_AI_CONFIG = {
+            brand: 'IRON CORE', coachTitle: 'IRON AI', emoji: '⚙️', accentClass: 'text-yellow-400',
+            systemPrompt: 'You are IRON CORE AI, brutalist strength coach in Jaipur. Powerlifting, strongman, no fluff. Bullet points.',
+            welcome: 'IRON AI. Ask for programs, lifts, or meal plans.',
+            quickPrompts: ['5x5 strength program', 'Deadlift progression', 'High protein Indian diet'],
+            theme: { launcherBg: 'background:#facc15;color:#000', windowClass: 'bg-black border-yellow-500 text-zinc-100', sendClass: 'bg-yellow-400 text-black font-bold', badgeClass: 'text-yellow-400', chipClass: 'border-yellow-500/50 text-zinc-500', inputClass: 'bg-black border border-yellow-500/50 text-white', userBubble: 'background:rgba(250,204,21,0.15);border:1px solid rgba(250,204,21,0.4)', botBubble: 'background:#18181b;border:1px solid #854d0e', avatar: 'background:#facc15;color:#000' }
+        };
+    </script>
+    <script src="gemini-ai.js"></script>
+    <script>
+        initPrototypeNav('ironcore_brutalist_prototype.html', 'text-yellow-400 border border-yellow-500/50 px-2 py-1', 'hover:text-yellow-400 px-2 py-1');
         function openModal(){document.getElementById('modal').classList.remove('hidden')}
         function closeModal(){document.getElementById('modal').classList.add('hidden')}
-        function calcBmi(){const h=+document.getElementById('h').value/100,w=+document.getElementById('w').value;if(!h||!w)return;const b=(w/(h*h)).toFixed(1);const o=document.getElementById('bmiOut');o.classList.remove('hidden');o.textContent='BMI '+b+' — IRON CORE says: add compound lifts 4x/week.';}
+        function calcBmi(){const h=+document.getElementById('h').value/100,w=+document.getElementById('w').value;if(!h||!w)return;const b=(w/(h*h)).toFixed(1);const o=document.getElementById('bmiOut');o.classList.remove('hidden');o.textContent='BMI '+b+' — use RUN GEMINI for full plan.';}
     </script>
 </body>
 </html>

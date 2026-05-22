@@ -101,7 +101,14 @@
             <p id="bmiOut" class="hidden mt-3 text-xs text-center text-pink-200/80"></p>
         </div>
     </section>
-    <footer class="text-center py-8 text-xs text-pink-200/30">PULSE Studio Prototype · Vibrant boutique concept</footer>
+    <section class="px-4 py-14 border-t border-white/10 max-w-2xl mx-auto">
+        <h2 class="font-display text-2xl font-bold text-center gradient-text mb-4">PULSE AI Coach</h2>
+        <textarea id="gym-ai-inline-input" rows="3" placeholder="Class picks, calories, dance vs HIIT…" class="w-full bg-black/40 border border-white/10 rounded-2xl p-4 text-sm text-white"></textarea>
+        <button type="button" onclick="askGymAIInline()" class="w-full mt-3 bg-gradient-to-r from-pink-500 to-cyan-500 py-3 rounded-2xl font-bold text-sm">Ask Gemini</button>
+        <div id="gym-ai-inline-loader" class="hidden mt-3 text-xs text-pink-300 text-center animate-pulse">PULSE AI mixing your plan…</div>
+        <div id="gym-ai-inline-result" class="hidden mt-3 p-4 bg-white/5 border border-pink-500/20 rounded-2xl text-xs text-pink-100/90 max-h-60 overflow-y-auto"></div>
+    </section>
+    <footer class="text-center py-8 text-xs text-pink-200/30">PULSE Studio · AI-powered</footer>
     <div id="modal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur flex items-center justify-center p-4">
         <div class="rounded-3xl p-8 max-w-sm w-full bg-gradient-to-b from-[#2a1020] to-[#0f172a] border border-pink-500/30">
             <h3 class="font-display text-2xl font-bold mb-4 gradient-text">Book Free Class</h3>
@@ -113,12 +120,22 @@
             <button onclick="closeModal()" class="mt-3 w-full text-xs text-pink-200/40">Close</button>
         </div>
     </div>
+    <script src="prototype-nav.js"></script>
     <script>
-        const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html',cur:true},{n:'TITAN',f:'titan_elite_prototype.html',{n:'APEX',f:'apex_crossfit_prototype.html'},{n:'NOVA',f:'nova_24x7_prototype.html'},{n:'ELIXIR',f:'elixir_womens_prototype.html'},{n:'VELOCITY',f:'velocity_run_club_prototype.html'}];
-        document.getElementById('proto-nav').innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto text-pink-200/50">'+(NAV.map(i=>i.c?`<span class="text-pink-300 bg-pink-500/15 border border-pink-400/30 px-2 py-1 rounded-md">${i.n}</span>`:`<a href="${i.f}" class="hover:text-white px-2 py-1">${i.n}</a>`).join('<span class="text-white/20">|</span>'))+'</div>';
+        window.GYM_AI_CONFIG = {
+            brand: 'PULSE', coachTitle: 'PULSE AI Coach', emoji: '💃', accentClass: 'text-pink-400',
+            systemPrompt: 'You are PULSE AI, boutique HIIT and dance studio coach in Jaipur. Fun, energetic, class recommendations. Bullets.',
+            welcome: 'Hey! Ask which class to take, weekly schedule, or calorie burn tips.',
+            quickPrompts: ['Best class for fat loss', 'Bollywood HIIT weekly plan', 'Post-workout nutrition'],
+            theme: { launcherBg: 'background:linear-gradient(135deg,#ec4899,#22d3ee);color:#fff', windowClass: 'bg-[#1a0a14]/95 border-pink-500/30 text-white', sendClass: 'bg-gradient-to-r from-pink-500 to-cyan-500 text-white font-bold', badgeClass: 'text-pink-400', chipClass: 'border-pink-500/30 text-pink-200/70', inputClass: 'bg-black/40 border border-white/10 text-white', userBubble: 'background:rgba(236,72,153,0.2);border:1px solid rgba(236,72,153,0.4)', botBubble: 'background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)', avatar: 'background:linear-gradient(135deg,#ec4899,#22d3ee);color:#fff' }
+        };
+    </script>
+    <script src="gemini-ai.js"></script>
+    <script>
+        initPrototypeNav('pulse_studio_prototype.html', 'text-pink-300 bg-pink-500/15 border border-pink-400/30 px-2 py-1 rounded-md', 'hover:text-white px-2 py-1');
         function openModal(){document.getElementById('modal').classList.remove('hidden')}
         function closeModal(){document.getElementById('modal').classList.add('hidden')}
-        function calcBmi(){const h=+document.getElementById('h').value/100,w=+document.getElementById('w').value;if(!h||!w)return;const b=(w/(h*h)).toFixed(1);const o=document.getElementById('bmiOut');o.classList.remove('hidden');o.textContent='BMI '+b+' — PULSE recommends Dance Burn + Pulse HIIT combo.';}
+        function calcBmi(){const h=+document.getElementById('h').value/100,w=+document.getElementById('w').value;if(!h||!w)return;const b=(w/(h*h)).toFixed(1);const o=document.getElementById('bmiOut');o.classList.remove('hidden');o.textContent='BMI '+b+' — ask PULSE AI for class combo.';}
     </script>
 </body>
 </html>

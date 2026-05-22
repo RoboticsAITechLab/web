@@ -86,7 +86,15 @@
             <div class="flex gap-3 p-4 bg-slate-900/80 rounded-xl border border-slate-800"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80" class="w-10 h-10 rounded-full object-cover" alt=""><div><p class="text-xs text-slate-300">"₹999 student plan — best deal in Jaipur honestly."</p><p class="text-[10px] text-nova-blue mt-1 font-mono">— Neha · Student</p></div></div>
         </div>
     </section>
-    <footer class="text-center py-8 text-xs text-slate-600 font-mono">NOVA 24/7 Prototype</footer>
+    <section class="px-4 py-14 border-t border-slate-800 max-w-2xl mx-auto">
+        <p class="font-mono text-[10px] text-nova-blue text-center mb-2">// GEMINI_AI_CORE</p>
+        <h2 class="text-xl font-bold text-center mb-4">NOVA AI Training Engine</h2>
+        <textarea id="gym-ai-inline-input" rows="3" placeholder="Workout split, diet, app features…" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-sm font-mono"></textarea>
+        <button type="button" onclick="askGymAIInline()" class="w-full mt-3 bg-nova-blue py-3 rounded-lg font-semibold text-sm">Query Gemini</button>
+        <div id="gym-ai-inline-loader" class="hidden mt-3 text-xs text-nova-blue text-center font-mono animate-pulse">processing…</div>
+        <div id="gym-ai-inline-result" class="hidden mt-3 p-4 bg-slate-950 border border-slate-700 rounded-lg text-xs text-slate-300 max-h-60 overflow-y-auto"></div>
+    </section>
+    <footer class="text-center py-8 text-xs text-slate-600 font-mono">NOVA 24/7 · AI-powered</footer>
     <div id="modal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-700 p-8 max-w-sm w-full rounded-xl">
             <h3 class="font-bold text-nova-blue mb-4">App Trial Signup</h3>
@@ -100,11 +108,21 @@
     </div>
     <script src="prototype-nav.js"></script>
     <script>
+        window.GYM_AI_CONFIG = {
+            brand: 'NOVA', coachTitle: 'NOVA AI Engine', emoji: '📱', accentClass: 'text-blue-400',
+            systemPrompt: 'You are NOVA AI, smart 24/7 gym coach in Jaipur. App-first advice: splits, Indian diet, occupancy tips. Concise bullets.',
+            welcome: 'NOVA AI online. Ask for programs, macros, or training times.',
+            quickPrompts: ['Build 4-day push pull legs', 'Student budget meal plan Jaipur', 'Best time to train for fat loss'],
+            theme: { launcherBg: 'background:#3b82f6;color:#fff', windowClass: 'bg-slate-950 border-slate-700 text-slate-100', sendClass: 'bg-blue-500 text-white', badgeClass: 'text-blue-400', chipClass: 'border-slate-700 text-slate-400', inputClass: 'bg-slate-950 border-slate-700 text-white', userBubble: 'background:rgba(59,130,246,0.2);border:1px solid rgba(59,130,246,0.4)', botBubble: 'background:#0f172a;border:1px solid #334155', avatar: 'background:#3b82f6;color:#fff' }
+        };
+    </script>
+    <script src="gemini-ai.js"></script>
+    <script>
         initPrototypeNav('nova_24x7_prototype.html', 'text-nova-blue bg-blue-500/10 border border-blue-500/30 px-2 py-1 rounded-md', 'text-slate-500 hover:text-white');
         setInterval(function(){document.getElementById('occ').textContent=(20+Math.floor(Math.random()*50))+'%';},4000);
         function openModal(){document.getElementById('modal').classList.remove('hidden')}
         function closeModal(){document.getElementById('modal').classList.add('hidden')}
-        function calcGoal(){var g=+document.getElementById('goal').value;document.getElementById('goalOut').classList.remove('hidden');document.getElementById('goalOut').textContent='NOVA AI: '+g+'kg target → 4× strength + 3× cardio/week, 2200 kcal baseline, deload week 5.';}
+        async function calcGoal(){var g=+document.getElementById('goal').value;document.getElementById('gym-ai-inline-input').value='Create 8-week plan to change weight by '+g+'kg for a Jaipur gym member using NOVA app.';await askGymAIInline();}
     </script>
 </body>
 </html>

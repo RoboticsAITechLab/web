@@ -459,7 +459,9 @@
         </div>
     </div>
 
+    <script src="gemini-ai.js"></script>
     <script>
+        window.GYM_AI_CONFIG = { skipWidget: true };
         // Database of dynamically toggling training class schedule
         const classSchedule = {
             mon: [
@@ -557,66 +559,6 @@
             document.getElementById('aiBmiBtn').classList.remove('hidden');
         }
 
-        // Leave the key empty as mandated so canvas handles automatic injection at runtime
-        const geminiApiKey = ""; 
-        const geminiModel = "gemini-3-flash-preview";
-        const geminiApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent?key=${geminiApiKey}`;
-
-        // Exponential Backoff API execution handler
-        async function fetchGeminiAPI(promptText, systemInstructionText = "") {
-            const payload = {
-                contents: [{ parts: [{ text: promptText }] }]
-            };
-            if (systemInstructionText) {
-                payload.systemInstruction = {
-                    parts: [{ text: systemInstructionText }]
-                };
-            }
-
-            let delay = 1000;
-            const maxRetries = 3;
-
-            for (let attempt = 1; attempt <= maxRetries; attempt++) {
-                try {
-                    const response = await fetch(geminiApiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        if (response.status === 429 && attempt < maxRetries) {
-                            await new Promise(res => setTimeout(res, delay));
-                            delay *= 2;
-                            continue;
-                        }
-                        throw new Error(`Gemini API Request failed with status ${response.status}`);
-                    }
-
-                    const result = await response.json();
-                    return result?.candidates?.[0]?.content?.parts?.[0]?.text || "Unable to parse AI response. Please try again.";
-                } catch (error) {
-                    if (attempt === maxRetries) {
-                        console.error("Failed to fetch from Gemini after all attempts: ", error);
-                        return "Sorry, I am facing a temporary connectivity issue with our performance server. Please retry in a bit!";
-                    }
-                    await new Promise(res => setTimeout(res, delay));
-                    delay *= 2;
-                }
-            }
-        }
-
-        // Custom local markdown-to-html formatter for sleek layout renderings
-        function formatMarkdown(text) {
-            return text
-                .replace(/\*\*(.*?)\*\*/g, '<strong class="text-violet-400 font-bold">$1</strong>')
-                .replace(/\*(.*?)\*/g, '<em class="text-zinc-200">$1</em>')
-                .replace(/`([^`]+)`/g, '<code class="bg-zinc-900 border border-zinc-800 text-rose-400 px-1 py-0.5 rounded text-[11px]">$1</code>')
-                .replace(/^\s*-\s+(.*)$/gmu, '<li class="ml-4 list-disc pl-1 mb-1.5 text-zinc-300">$1</li>')
-                .replace(/\n\n/g, '<br/><br/>')
-                .replace(/\n/g, '<br/>');
-        }
-
         async function getAIBMIAnalysis() {
             const height = document.getElementById('bmiHeight').value;
             const weight = document.getElementById('bmiWeight').value;
@@ -634,8 +576,8 @@
             const systemPrompt = "Act as an Elite AI Biometric Coach for AURA High-Performance Gym in Jaipur. Your advice should be specific, energetic, highly scientific, professional, and directly actionable. Use bullet points for structural clarity.";
             const userPrompt = `Develop a targeted 3-day workout layout and localized micro-nutrition advice for a client in Jaipur. Client Stats: Height: ${height}cm, Weight: ${weight}kg, Calculated BMI: ${bmi} (${status}). Address the client directly.`;
 
-            const rawResponse = await fetchGeminiAPI(userPrompt, systemPrompt);
-            const htmlFormatted = formatMarkdown(rawResponse);
+            const rawResponse = await window.fetchGeminiAPI(userPrompt, systemPrompt);
+            const htmlFormatted = window.formatMarkdown(rawResponse, 'text-violet-400');
 
             loader.classList.add('hidden');
             resultBox.innerHTML = htmlFormatted;
@@ -708,8 +650,8 @@
             // Assemble Elite Coaching Persona Instructions
             const coachingSystemPrompt = "You are AURA AI, an elite futuristic personal trainer and nutritionist at AURA High-Performance Arena in Jaipur. You speak with high authority, deep scientific knowledge, energy, and localized warmth. Keep responses highly customized, structured with bolding/bullets, concise but premium.";
             
-            const rawResponse = await fetchGeminiAPI(promptText, coachingSystemPrompt);
-            const htmlResponse = formatMarkdown(rawResponse);
+            const rawResponse = await window.fetchGeminiAPI(promptText, coachingSystemPrompt);
+            const htmlResponse = window.formatMarkdown(rawResponse, 'text-violet-400');
 
             // Hide Typing indicator and render
             typingIndicator.classList.add('hidden');
@@ -791,7 +733,7 @@
         // Initial Boot Setup
         window.onload = function() {
             switchDay('mon', document.querySelector('.day-tab'));
-            const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html',cur:true},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html',{n:'APEX',f:'apex_crossfit_prototype.html'},{n:'NOVA',f:'nova_24x7_prototype.html'},{n:'ELIXIR',f:'elixir_womens_prototype.html'},{n:'VELOCITY',f:'velocity_run_club_prototype.html'}];
+            const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html',cur:true},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html'},{n:'APEX',f:'apex_crossfit_prototype.html'},{n:'NOVA',f:'nova_24x7_prototype.html'},{n:'ELIXIR',f:'elixir_womens_prototype.html'},{n:'VELOCITY',f:'velocity_run_club_prototype.html'}];
             const nav=document.getElementById('proto-nav');
             if(nav) nav.innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto">'+(NAV.map(i=>i.cur?`<span class="text-violet-400 bg-violet-500/10 border border-violet-500/20 px-2 py-1 rounded-md whitespace-nowrap">${i.n}</span>`:`<a href="${i.f}" class="hover:text-white px-2 py-1 whitespace-nowrap">${i.n}</a>`).join('<span class="text-zinc-700">|</span>'))+'</div>';
         }

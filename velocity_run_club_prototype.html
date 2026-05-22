@@ -87,7 +87,14 @@
             <p id="paceOut" class="hidden mt-4 text-xs text-slate-300 font-mono leading-relaxed"></p>
         </div>
     </section>
-    <footer class="text-center py-8 text-xs text-slate-600">VELOCITY Run Club Prototype</footer>
+    <section class="px-4 py-14 border-t border-teal-900/40 max-w-2xl mx-auto">
+        <h2 class="font-display text-xl uppercase text-center text-vel-teal mb-4">VELOCITY AI Pacing Coach</h2>
+        <textarea id="gym-ai-inline-input" rows="3" placeholder="Marathon plan, pace strategy, Jaipur routes…" class="w-full bg-slate-950 border border-teal-800 rounded-lg p-3 text-sm"></textarea>
+        <button type="button" onclick="askGymAIInline()" class="w-full mt-3 bg-vel-teal text-vel-navy font-bold py-3 rounded-lg text-sm">Ask Gemini</button>
+        <div id="gym-ai-inline-loader" class="hidden mt-3 text-xs text-vel-teal text-center animate-pulse">Calculating strategy…</div>
+        <div id="gym-ai-inline-result" class="hidden mt-3 p-4 bg-slate-950 border border-teal-800 rounded-lg text-xs text-slate-300 max-h-60 overflow-y-auto font-mono"></div>
+    </section>
+    <footer class="text-center py-8 text-xs text-slate-600">VELOCITY · AI-powered</footer>
     <div id="modal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
         <div class="bg-vel-navy border border-teal-700 p-8 max-w-sm w-full rounded-xl">
             <h3 class="font-display text-xl uppercase text-vel-teal mb-4">Join Run</h3>
@@ -101,10 +108,20 @@
     </div>
     <script src="prototype-nav.js"></script>
     <script>
+        window.GYM_AI_CONFIG = {
+            brand: 'VELOCITY', coachTitle: 'VELOCITY AI Pace Coach', emoji: '🏃', accentClass: 'text-teal-400',
+            systemPrompt: 'You are VELOCITY AI, run coach in Jaipur. Marathon prep, pacing, weekly mileage, Indian climate tips. Concise bullets.',
+            welcome: 'Ready to run? Ask for pacing, weekly plan, or race strategy.',
+            quickPrompts: ['12-week half marathon plan', 'How to improve 5K time', 'Long run nutrition Jaipur heat'],
+            theme: { launcherBg: 'background:#14b8a6;color:#0c1929', windowClass: 'bg-vel-navy border-teal-800 text-slate-100', sendClass: 'bg-teal-500 text-slate-900 font-bold', badgeClass: 'text-teal-400', chipClass: 'border-teal-800 text-slate-500', inputClass: 'bg-slate-950 border border-teal-800 text-white', userBubble: 'background:rgba(20,184,166,0.2);border:1px solid rgba(20,184,166,0.4)', botBubble: 'background:#0f172a;border:1px solid #134e4a', avatar: 'background:#14b8a6;color:#0c1929' }
+        };
+    </script>
+    <script src="gemini-ai.js"></script>
+    <script>
         initPrototypeNav('velocity_run_club_prototype.html', 'text-vel-teal bg-teal-500/10 border border-teal-500/30 px-2 py-1 rounded-md', 'text-slate-500 hover:text-white');
         function openModal(){document.getElementById('modal').classList.remove('hidden')}
         function closeModal(){document.getElementById('modal').classList.add('hidden')}
-        function calcPace(){var m=+document.getElementById('fivek').value;var h10=(m*2.1).toFixed(0);var hh=(m*4.4).toFixed(0);document.getElementById('paceOut').classList.remove('hidden');document.getElementById('paceOut').textContent='10K est: '+Math.floor(h10/60)+':'+(h10%60).toString().padStart(2,'0')+' · Half est: '+Math.floor(hh/60)+':'+(hh%60).toString().padStart(2,'0')+' — join Tempo Tuesday to improve.';}
+        async function calcPace(){var m=+document.getElementById('fivek').value;document.getElementById('gym-ai-inline-input').value='My 5K time is '+m+' minutes — build a 8-week improvement plan for Jaipur runner.';await askGymAIInline();}
     </script>
 </body>
 </html>
