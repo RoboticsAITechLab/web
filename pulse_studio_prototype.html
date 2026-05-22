@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PULSE | Boutique HIIT & Dance Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Plus Jakarta Sans','sans-serif'],display:['Syne','sans-serif']}}}}</script>
+    <style>
+        body{background:linear-gradient(160deg,#1a0a14 0%,#0f172a 50%,#0a1628 100%)}
+        .gradient-text{background:linear-gradient(90deg,#f472b6,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:#ec4899;border-radius:99px}
+    </style>
+</head>
+<body class="text-white font-sans min-h-screen overflow-x-hidden">
+    <div id="proto-nav" class="sticky top-0 z-[60] bg-[#1a0a14]/90 backdrop-blur border-b border-pink-500/20 px-3 py-2 overflow-x-auto text-[10px] sm:text-xs font-semibold"></div>
+    <nav class="px-4 py-4 sm:px-8 border-b border-white/5">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-pink-500 to-cyan-400 flex items-center justify-center font-display font-extrabold text-sm">P</div>
+                <span class="font-display font-extrabold text-2xl tracking-tight">PULSE</span>
+            </div>
+            <button onclick="openModal()" class="bg-gradient-to-r from-pink-500 to-cyan-500 px-5 py-2 rounded-2xl text-sm font-bold shadow-lg shadow-pink-500/30 hover:scale-105 transition-transform">Free Class</button>
+        </div>
+    </nav>
+    <header class="max-w-5xl mx-auto px-4 sm:px-8 pt-12 pb-20 text-center relative">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 bg-pink-500/20 rounded-full blur-[100px] -z-10"></div>
+        <div class="absolute top-20 right-10 w-48 h-48 bg-cyan-500/15 rounded-full blur-[80px] -z-10"></div>
+        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-pink-500/20 text-pink-300 border border-pink-500/30 mb-6">🔥 New: Rhythm HIIT × Bollywood Beats</span>
+        <h1 class="font-display text-4xl sm:text-6xl font-extrabold leading-tight mb-5">Move Loud.<br/><span class="gradient-text">Feel Everything.</span></h1>
+        <p class="text-pink-100/60 text-sm max-w-md mx-auto mb-10">Boutique studio for HIIT, dance cardio, spin, and community challenges — music-driven, camera-ready vibes.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto mb-10 text-left">
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur hover:border-pink-400/50 transition-colors cursor-pointer" onclick="openModal()">
+                <span class="text-2xl">💃</span>
+                <p class="font-bold text-sm mt-2">Dance Burn</p>
+                <p class="text-xs text-pink-200/50">45 min · 500 cal avg</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur hover:border-cyan-400/50 transition-colors cursor-pointer" onclick="openModal()">
+                <span class="text-2xl">⚡</span>
+                <p class="font-bold text-sm mt-2">Pulse HIIT</p>
+                <p class="text-xs text-pink-200/50">30 min · EMOM format</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur hover:border-pink-400/50 transition-colors cursor-pointer" onclick="openModal()">
+                <span class="text-2xl">🚴</span>
+                <p class="font-bold text-sm mt-2">Neon Ride</p>
+                <p class="text-xs text-pink-200/50">Spin · live DJ sets</p>
+            </div>
+        </div>
+        <button onclick="openModal()" class="bg-white text-pink-600 font-bold px-10 py-4 rounded-2xl hover:bg-pink-50 transition-colors">Claim 3 Free Classes</button>
+    </header>
+    <section class="px-4 py-14 border-y border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-display text-2xl font-bold text-center mb-8">Studio Passes</h2>
+            <div class="grid sm:grid-cols-3 gap-4">
+                <div class="rounded-3xl p-6 bg-white/5 border border-white/10 text-center">
+                    <p class="text-pink-400 text-xs font-bold mb-2">8 CLASSES</p>
+                    <p class="font-display text-4xl font-extrabold">₹2,999</p>
+                </div>
+                <div class="rounded-3xl p-6 bg-gradient-to-b from-pink-500/30 to-cyan-500/20 border border-pink-400/40 text-center shadow-xl shadow-pink-500/20">
+                    <p class="text-cyan-300 text-xs font-bold mb-2">UNLIMITED ★</p>
+                    <p class="font-display text-4xl font-extrabold">₹4,499</p>
+                </div>
+                <div class="rounded-3xl p-6 bg-white/5 border border-white/10 text-center">
+                    <p class="text-pink-400 text-xs font-bold mb-2">COUPLE</p>
+                    <p class="font-display text-4xl font-extrabold">₹7,499</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="max-w-md mx-auto px-4 py-12">
+        <h2 class="font-display text-xl font-bold text-center mb-4">Body Pulse Check</h2>
+        <div class="rounded-3xl p-5 bg-white/5 border border-pink-500/20 backdrop-blur">
+            <div class="grid grid-cols-2 gap-3 mb-3">
+                <input type="number" id="h" placeholder="Height" class="bg-black/30 border border-white/10 rounded-xl p-3 text-sm outline-none focus:border-pink-400">
+                <input type="number" id="w" placeholder="Weight" class="bg-black/30 border border-white/10 rounded-xl p-3 text-sm outline-none focus:border-cyan-400">
+            </div>
+            <button onclick="calcBmi()" class="w-full bg-gradient-to-r from-pink-500 to-cyan-500 py-3 rounded-xl font-bold text-sm">Scan</button>
+            <p id="bmiOut" class="hidden mt-3 text-xs text-center text-pink-200/80"></p>
+        </div>
+    </section>
+    <footer class="text-center py-8 text-xs text-pink-200/30">PULSE Studio Prototype · Vibrant boutique concept</footer>
+    <div id="modal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur flex items-center justify-center p-4">
+        <div class="rounded-3xl p-8 max-w-sm w-full bg-gradient-to-b from-[#2a1020] to-[#0f172a] border border-pink-500/30">
+            <h3 class="font-display text-2xl font-bold mb-4 gradient-text">Book Free Class</h3>
+            <form onsubmit="event.preventDefault();closeModal();alert('Demo: PULSE class booked!');">
+                <input required placeholder="Your name" class="w-full bg-black/40 border border-white/10 rounded-xl p-3 mb-3 text-sm">
+                <input required placeholder="WhatsApp" class="w-full bg-black/40 border border-white/10 rounded-xl p-3 mb-4 text-sm">
+                <button class="w-full bg-gradient-to-r from-pink-500 to-cyan-500 py-3 rounded-xl font-bold text-sm">Reserve Spot</button>
+            </form>
+            <button onclick="closeModal()" class="mt-3 w-full text-xs text-pink-200/40">Close</button>
+        </div>
+    </div>
+    <script>
+        const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html',cur:true},{n:'TITAN',f:'titan_elite_prototype.html'}];
+        document.getElementById('proto-nav').innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto text-pink-200/50">'+(NAV.map(i=>i.c?`<span class="text-pink-300 bg-pink-500/15 border border-pink-400/30 px-2 py-1 rounded-md">${i.n}</span>`:`<a href="${i.f}" class="hover:text-white px-2 py-1">${i.n}</a>`).join('<span class="text-white/20">|</span>'))+'</div>';
+        function openModal(){document.getElementById('modal').classList.remove('hidden')}
+        function closeModal(){document.getElementById('modal').classList.add('hidden')}
+        function calcBmi(){const h=+document.getElementById('h').value/100,w=+document.getElementById('w').value;if(!h||!w)return;const b=(w/(h*h)).toFixed(1);const o=document.getElementById('bmiOut');o.classList.remove('hidden');o.textContent='BMI '+b+' — PULSE recommends Dance Burn + Pulse HIIT combo.';}
+    </script>
+</body>
+</html>

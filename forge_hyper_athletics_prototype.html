@@ -66,16 +66,7 @@
 </head>
 <body class="bg-cyber-bg text-zinc-100 font-sans selection:bg-cyber-orange selection:text-white overflow-x-hidden">
 
-    <!-- Prototype switcher (client navigation) -->
-    <div class="sticky top-0 z-[60] bg-cyber-bg/95 backdrop-blur border-b border-zinc-800 px-3 sm:px-6 py-2">
-        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-x-1 gap-y-1 text-[11px] sm:text-xs font-semibold">
-            <a href="index.html" class="text-zinc-400 hover:text-cyber-cyan px-2 py-1 rounded-md hover:bg-zinc-800/80 transition-colors">← All prototypes</a>
-            <span class="text-zinc-700 hidden sm:inline">|</span>
-            <a href="modern_gym_prototype.html" class="text-zinc-400 hover:text-violet-400 px-2 py-1 rounded-md hover:bg-zinc-800/80 transition-colors">AURA Modern Gym</a>
-            <span class="text-zinc-700 hidden sm:inline">|</span>
-            <span class="text-cyber-orange px-2 py-1 rounded-md bg-cyber-orange/10 border border-cyber-orange/20">FORGE (viewing)</span>
-        </div>
-    </div>
+    <div id="proto-nav" class="sticky top-0 z-[60] bg-cyber-bg/95 backdrop-blur border-b border-zinc-800 px-3 sm:px-6 py-2 overflow-x-auto text-[10px] sm:text-xs font-semibold text-zinc-400"></div>
 
     <!-- Glassmorphic Header -->
     <nav class="sticky top-0 w-full z-50 bg-cyber-bg/80 backdrop-blur-md border-b border-zinc-900 px-4 py-4 sm:px-6">
@@ -1034,6 +1025,9 @@
         // Initial launch configuration
         window.onload = function() {
             selectMuscle('Chest', document.getElementById('chest'));
+            const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html',cur:true},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html'}];
+            const nav=document.getElementById('proto-nav');
+            if(nav) nav.innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto">'+(NAV.map(i=>i.cur?`<span class="text-cyber-orange bg-cyber-orange/10 border border-cyber-orange/20 px-2 py-1 rounded-md whitespace-nowrap">${i.n}</span>`:`<a href="${i.f}" class="hover:text-cyber-cyan px-2 py-1 whitespace-nowrap">${i.n}</a>`).join('<span class="text-zinc-700">|</span>'))+'</div>';
         }
     </script>
 </body>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TITAN | Private Members Athletic Club</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Montserrat','sans-serif'],display:['Playfair Display','serif']}}}}</script>
+    <style>
+        body{background:#0c0a08}
+        .gold{border-color:rgba(212,175,55,.35)}
+        .gold-text{color:#d4af37}
+        .gold-bg{background:linear-gradient(135deg,#d4af37,#b8860b)}
+        ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:#5c4a1f;border-radius:99px}
+    </style>
+</head>
+<body class="text-amber-50/90 font-sans selection:bg-amber-600 selection:text-black">
+    <div id="proto-nav" class="sticky top-0 z-[60] bg-[#0c0a08]/95 backdrop-blur border-b gold px-3 py-2 overflow-x-auto text-[10px] sm:text-xs font-medium"></div>
+    <nav class="border-b gold px-6 py-5">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-center sm:text-left">
+                <p class="text-[9px] tracking-[0.5em] uppercase gold-text mb-1">Est. 1987 · Members Only</p>
+                <span class="font-display text-3xl sm:text-4xl text-amber-100 tracking-wide">TITAN</span>
+                <span class="hidden sm:inline font-display text-lg text-amber-200/50 ml-2">Athletic Club</span>
+            </div>
+            <button onclick="openModal()" class="gold-bg text-black font-semibold text-xs uppercase tracking-widest px-6 py-3 hover:opacity-90 transition-opacity">Request Invitation</button>
+        </div>
+    </nav>
+    <header class="max-w-6xl mx-auto px-6 pt-16 pb-24 text-center relative">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.08),transparent_70%)] -z-10"></div>
+        <div class="inline-block border gold px-6 py-2 rounded-sm mb-8">
+            <span class="text-[10px] uppercase tracking-[0.35em] gold-text">Private · Concierge · Executive</span>
+        </div>
+        <h1 class="font-display text-4xl sm:text-6xl text-amber-50 leading-tight mb-6 max-w-3xl mx-auto">The Standard of<br/><span class="gold-text italic">Elite Performance</span></h1>
+        <p class="text-amber-200/40 text-sm max-w-lg mx-auto mb-12 leading-relaxed">Mahogany locker rooms, olympic lifting suites, personal chef nutrition, valet parking, and white-glove AI concierge for C-suite athletes.</p>
+        <div class="flex flex-wrap justify-center gap-6 mb-14 text-left">
+            <div class="border gold p-5 w-40 rounded-sm">
+                <p class="gold-text font-display text-2xl">01</p>
+                <p class="text-xs uppercase tracking-wider text-amber-200/50 mt-2">Private Suites</p>
+            </div>
+            <div class="border gold p-5 w-40 rounded-sm">
+                <p class="gold-text font-display text-2xl">12</p>
+                <p class="text-xs uppercase tracking-wider text-amber-200/50 mt-2">Master Trainers</p>
+            </div>
+            <div class="border gold p-5 w-40 rounded-sm">
+                <p class="gold-text font-display text-2xl">∞</p>
+                <p class="text-xs uppercase tracking-wider text-amber-200/50 mt-2">Concierge</p>
+            </div>
+        </div>
+        <button onclick="openModal()" class="border gold gold-text hover:bg-amber-500/10 px-12 py-4 text-xs uppercase tracking-[0.2em] transition-all">Schedule Private Tour</button>
+    </header>
+    <section class="border-y gold py-20 px-6 bg-black/40">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-display text-3xl text-center gold-text mb-12">Membership Tiers</h2>
+            <div class="space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border gold p-6 rounded-sm gap-4">
+                    <div><p class="font-display text-xl text-amber-100">Associate</p><p class="text-xs text-amber-200/40 mt-1">Gym floor · group classes</p></div>
+                    <p class="font-display text-3xl gold-text">₹12,000<span class="text-sm text-amber-200/30">/mo</span></p>
+                </div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-2 border-amber-500/50 bg-amber-500/5 p-6 rounded-sm gap-4">
+                    <div><p class="font-display text-xl text-amber-100">Executive ★</p><p class="text-xs text-amber-200/40 mt-1">Trainer · spa · nutrition chef</p></div>
+                    <p class="font-display text-3xl gold-text">₹28,000<span class="text-sm text-amber-200/30">/mo</span></p>
+                </div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border gold p-6 rounded-sm gap-4">
+                    <div><p class="font-display text-xl text-amber-100">Founding Circle</p><p class="text-xs text-amber-200/40 mt-1">Lifetime · family · private wing</p></div>
+                    <p class="font-display text-3xl gold-text">Invite</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="max-w-md mx-auto px-6 py-16">
+        <h2 class="font-display text-xl text-center gold-text mb-6">Executive Health Index</h2>
+        <div class="border gold p-6 rounded-sm">
+            <div class="grid grid-cols-2 gap-3 mb-4">
+                <input type="number" id="h" placeholder="Height" class="bg-black/50 border gold rounded-sm p-3 text-sm outline-none focus:border-amber-400 text-amber-100">
+                <input type="number" id="w" placeholder="Weight" class="bg-black/50 border gold rounded-sm p-3 text-sm outline-none focus:border-amber-400 text-amber-100">
+            </div>
+            <button onclick="calcBmi()" class="w-full gold-bg text-black text-xs font-bold uppercase tracking-widest py-3">Analyze</button>
+            <p id="bmiOut" class="hidden mt-4 text-xs text-center text-amber-200/60"></p>
+        </div>
+    </section>
+    <footer class="text-center py-10 text-[10px] uppercase tracking-[0.3em] text-amber-900">TITAN Elite Prototype · Gold luxury concept</footer>
+    <div id="modal" class="hidden fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4">
+        <div class="border-2 border-amber-500/50 bg-[#0c0a08] p-8 max-w-sm w-full rounded-sm">
+            <h3 class="font-display text-2xl gold-text mb-2">Private Invitation</h3>
+            <p class="text-xs text-amber-200/40 mb-6">Our concierge will contact you within 24 hours.</p>
+            <form onsubmit="event.preventDefault();closeModal();alert('Demo: TITAN invitation request received.');">
+                <input required placeholder="Full name" class="w-full bg-black/60 border gold rounded-sm p-3 mb-3 text-sm text-amber-100">
+                <input required placeholder="Company email" class="w-full bg-black/60 border gold rounded-sm p-3 mb-4 text-sm text-amber-100">
+                <button class="w-full gold-bg text-black text-xs font-bold uppercase tracking-widest py-3">Submit Request</button>
+            </form>
+            <button onclick="closeModal()" class="mt-4 w-full text-[10px] uppercase tracking-wider text-amber-900">Dismiss</button>
+        </div>
+    </div>
+    <script>
+        const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html',cur:true}];
+        document.getElementById('proto-nav').innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto text-amber-200/40">'+(NAV.map(i=>i.c?`<span class="gold-text border gold px-2 py-1 rounded-sm">${i.n}</span>`:`<a href="${i.f}" class="hover:text-amber-100 px-2 py-1">${i.n}</a>`).join('<span class="text-amber-900">|</span>'))+'</div>';
+        function openModal(){document.getElementById('modal').classList.remove('hidden')}
+        function closeModal(){document.getElementById('modal').classList.add('hidden')}
+        function calcBmi(){const h=+document.getElementById('h').value/100,w=+document.getElementById('w').value;if(!h||!w)return;const b=(w/(h*h)).toFixed(1);const o=document.getElementById('bmiOut');o.classList.remove('hidden');o.textContent='BMI '+b+' — TITAN concierge recommends Executive tier with bespoke programming.';}
+    </script>
+</body>
+</html>

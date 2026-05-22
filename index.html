@@ -22,79 +22,140 @@
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #09090b; }
         ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 9999px; }
-        .card-glow-violet:hover { box-shadow: 0 0 40px rgba(139, 92, 246, 0.2); }
-        .card-glow-orange:hover { box-shadow: 0 0 40px rgba(255, 90, 0, 0.2); }
     </style>
 </head>
 <body class="bg-[#09090b] text-zinc-100 font-sans min-h-screen selection:bg-violet-600 selection:text-white">
 
     <header class="border-b border-zinc-800/80 bg-[#09090b]/90 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div>
                 <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-500 mb-1">Client preview</p>
-                <h1 class="font-display font-black text-2xl sm:text-3xl tracking-tight text-white">Prototype Gallery</h1>
+                <h1 class="font-display font-black text-2xl sm:text-3xl tracking-tight text-white">Gym Prototype Gallery</h1>
             </div>
-            <span class="inline-flex self-start items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">
+            <span id="demo-count" class="inline-flex self-start items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                2 live demos
+                6 live demos
             </span>
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
         <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mb-10 leading-relaxed">
-            Select a prototype below to open the full interactive demo. Each link opens in this tab — use your browser back button or the bar inside each demo to return here.
+            Har prototype alag design direction dikhata hai — luxury, cyber, wellness, brutalist, boutique studio, aur gold elite. Koi bhi card kholo; andar top bar se doosre demos switch kar sakte ho.
         </p>
 
-        <div class="grid gap-6 sm:grid-cols-2">
-
-            <!-- AURA -->
-            <a href="modern_gym_prototype.html"
-               class="group card-glow-violet block rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 sm:p-8 transition-all duration-300 hover:border-violet-500/50 hover:-translate-y-0.5">
-                <div class="flex items-start justify-between gap-4 mb-6">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-violet-600 to-fuchsia-600 flex items-center justify-center font-display font-black text-xl text-white shadow-[0_0_20px_rgba(139,92,246,0.35)]">A</div>
-                    <span class="text-[10px] font-bold uppercase tracking-wider text-violet-400 bg-violet-500/10 border border-violet-500/20 px-2 py-1 rounded-md">Luxury</span>
-                </div>
-                <h2 class="font-display font-black text-xl sm:text-2xl text-white mb-2 group-hover:text-violet-200 transition-colors">AURA</h2>
-                <p class="text-sm text-zinc-400 mb-6 leading-relaxed">Modern luxury fitness with AI concierge, Jaipur edition branding, guest pass flow, and premium glass UI.</p>
-                <ul class="text-xs text-zinc-500 space-y-1.5 mb-8">
-                    <li class="flex items-center gap-2"><span class="text-violet-500">●</span> AI chat & booking modal</li>
-                    <li class="flex items-center gap-2"><span class="text-violet-500">●</span> Violet / fuchsia theme</li>
-                    <li class="flex items-center gap-2"><span class="text-violet-500">●</span> Mobile-first layout</li>
-                </ul>
-                <span class="inline-flex items-center gap-2 font-display font-bold text-sm text-violet-400 group-hover:text-white transition-colors">
-                    Open prototype
-                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </span>
-            </a>
-
-            <!-- FORGE -->
-            <a href="forge_hyper_athletics_prototype.html"
-               class="group card-glow-orange block rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 sm:p-8 transition-all duration-300 hover:border-orange-500/50 hover:-translate-y-0.5">
-                <div class="flex items-start justify-between gap-4 mb-6">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ff5a00] to-red-600 flex items-center justify-center font-display font-black text-lg text-white shadow-[0_0_20px_rgba(255,90,0,0.35)]">//F</div>
-                    <span class="text-[10px] font-bold uppercase tracking-wider text-orange-400 bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded-md">Elite</span>
-                </div>
-                <h2 class="font-display font-black text-xl sm:text-2xl text-white mb-1 group-hover:text-orange-200 transition-colors">FORGE</h2>
-                <p class="text-[10px] font-bold text-cyan-400 tracking-widest uppercase mb-2">Hyper-Athletics</p>
-                <p class="text-sm text-zinc-400 mb-6 leading-relaxed">Cyber elite training system with FORGE AI core, neon orange/cyan UI, and high-performance athlete positioning.</p>
-                <ul class="text-xs text-zinc-500 space-y-1.5 mb-8">
-                    <li class="flex items-center gap-2"><span class="text-orange-500">●</span> FORGE AI core UX</li>
-                    <li class="flex items-center gap-2"><span class="text-orange-500">●</span> Orange / cyan cyber theme</li>
-                    <li class="flex items-center gap-2"><span class="text-orange-500">●</span> Extended sections & flows</li>
-                </ul>
-                <span class="inline-flex items-center gap-2 font-display font-bold text-sm text-orange-400 group-hover:text-white transition-colors">
-                    Open prototype
-                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </span>
-            </a>
-
-        </div>
+        <div id="gallery" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
 
         <p class="mt-12 text-center text-xs text-zinc-600">
             Interactive HTML prototypes · For client review only
         </p>
     </main>
 
+    <script>
+        const prototypes = [
+            {
+                file: 'modern_gym_prototype.html',
+                name: 'AURA',
+                tag: 'Luxury AI',
+                tagClass: 'text-violet-400 bg-violet-500/10 border-violet-500/20',
+                icon: 'A',
+                iconClass: 'bg-gradient-to-tr from-violet-600 to-fuchsia-600 shadow-[0_0_20px_rgba(139,92,246,0.35)]',
+                hover: 'hover:border-violet-500/50 card-glow-violet',
+                desc: 'Modern luxury fitness — AI coach, BMI tools, Jaipur branding, violet glass UI.',
+                bullets: ['Full AI chat demo', 'Violet / fuchsia', 'Membership toggles'],
+                accent: 'text-violet-400 group-hover:text-violet-200'
+            },
+            {
+                file: 'forge_hyper_athletics_prototype.html',
+                name: 'FORGE',
+                sub: 'Hyper-Athletics',
+                tag: 'Cyber Elite',
+                tagClass: 'text-orange-400 bg-orange-500/10 border-orange-500/20',
+                icon: '//F',
+                iconClass: 'bg-gradient-to-br from-[#ff5a00] to-red-600 shadow-[0_0_20px_rgba(255,90,0,0.35)] text-sm',
+                hover: 'hover:border-orange-500/50 card-glow-orange',
+                desc: 'Cyber elite training — FORGE AI core, orange/cyan neon, extended athlete flows.',
+                bullets: ['FORGE AI core', 'Orange / cyan', 'Long-form sections'],
+                accent: 'text-orange-400 group-hover:text-orange-200'
+            },
+            {
+                file: 'zenith_wellness_prototype.html',
+                name: 'ZENITH',
+                tag: 'Wellness',
+                tagClass: 'text-emerald-600 bg-emerald-500/10 border-emerald-500/20',
+                icon: 'Z',
+                iconClass: 'bg-emerald-600/20 text-emerald-600 border border-emerald-500/30',
+                hover: 'hover:border-emerald-500/40',
+                desc: 'Light boutique wellness — sage & cream, yoga, recovery, calm spa positioning.',
+                bullets: ['Light theme', 'Serif elegance', 'Wellness pricing'],
+                accent: 'text-emerald-400 group-hover:text-emerald-200'
+            },
+            {
+                file: 'ironcore_brutalist_prototype.html',
+                name: 'IRON CORE',
+                tag: 'Brutalist',
+                tagClass: 'text-yellow-400 bg-yellow-500/10 border-yellow-500/20',
+                icon: 'IC',
+                iconClass: 'bg-yellow-400 text-black text-sm font-black',
+                hover: 'hover:border-yellow-500/50',
+                desc: 'Raw warehouse gym — black/yellow, Bebas Neue, 24/7 strength, zero fluff.',
+                bullets: ['Industrial UI', 'Bold typography', 'Day pass pricing'],
+                accent: 'text-yellow-400 group-hover:text-yellow-200'
+            },
+            {
+                file: 'pulse_studio_prototype.html',
+                name: 'PULSE',
+                tag: 'Boutique',
+                tagClass: 'text-pink-400 bg-pink-500/10 border-pink-500/20',
+                icon: 'P',
+                iconClass: 'bg-gradient-to-br from-pink-500 to-cyan-400',
+                hover: 'hover:border-pink-500/50',
+                desc: 'HIIT & dance studio — pink/cyan gradients, music-driven classes, community vibe.',
+                bullets: ['Gradient hero', 'Class cards', 'Free class CTA'],
+                accent: 'text-pink-400 group-hover:text-pink-200'
+            },
+            {
+                file: 'titan_elite_prototype.html',
+                name: 'TITAN',
+                tag: 'Gold Elite',
+                tagClass: 'text-amber-400 bg-amber-500/10 border-amber-500/20',
+                icon: 'T',
+                iconClass: 'bg-gradient-to-br from-amber-400 to-amber-700 text-black',
+                hover: 'hover:border-amber-500/40',
+                desc: 'Private members club — gold/black, Playfair luxury, invitation-only positioning.',
+                bullets: ['Gold accents', 'Executive tiers', 'Concierge modal'],
+                accent: 'text-amber-400 group-hover:text-amber-200'
+            }
+        ];
+
+        const arrow = '<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>';
+
+        document.getElementById('gallery').innerHTML = prototypes.map(p => `
+            <a href="${p.file}" class="group block rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition-all duration-300 hover:-translate-y-0.5 ${p.hover}">
+                <div class="flex items-start justify-between gap-3 mb-5">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center font-display font-black text-lg text-white ${p.iconClass}">${p.icon}</div>
+                    <span class="text-[10px] font-bold uppercase tracking-wider border px-2 py-1 rounded-md ${p.tagClass}">${p.tag}</span>
+                </div>
+                <h2 class="font-display font-black text-xl text-white ${p.accent} transition-colors">${p.name}</h2>
+                ${p.sub ? `<p class="text-[10px] font-bold text-cyan-400 tracking-widest uppercase mb-2">${p.sub}</p>` : '<div class="mb-2"></div>'}
+                <p class="text-sm text-zinc-400 mb-5 leading-relaxed">${p.desc}</p>
+                <ul class="text-xs text-zinc-500 space-y-1 mb-6">
+                    ${p.bullets.map(b => `<li>● ${b}</li>`).join('')}
+                </ul>
+                <span class="inline-flex items-center gap-2 font-display font-bold text-sm ${p.accent}">
+                    Open prototype ${arrow}
+                </span>
+            </a>
+        `).join('');
+
+        document.querySelectorAll('.card-glow-violet').forEach(el => {
+            el.addEventListener('mouseenter', () => el.style.boxShadow = '0 0 40px rgba(139,92,246,0.2)');
+            el.addEventListener('mouseleave', () => el.style.boxShadow = '');
+        });
+        document.querySelectorAll('.card-glow-orange').forEach(el => {
+            el.addEventListener('mouseenter', () => el.style.boxShadow = '0 0 40px rgba(255,90,0,0.2)');
+            el.addEventListener('mouseleave', () => el.style.boxShadow = '');
+        });
+    </script>
 </body>
 </html>
