@@ -48,7 +48,29 @@
             </div>
         </div>
         <button onclick="openModal()" class="bg-white text-pink-600 font-bold px-10 py-4 rounded-2xl hover:bg-pink-50 transition-colors">Claim 3 Free Classes</button>
+        <div class="mt-10 max-w-3xl mx-auto rounded-3xl overflow-hidden border border-pink-500/30 aspect-video shadow-lg shadow-pink-500/20">
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1100&q=80" alt="PULSE studio class" class="w-full h-full object-cover" loading="lazy">
+        </div>
     </header>
+    <section class="px-4 py-12 border-b border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-display text-2xl font-bold text-center mb-6 gradient-text">Studio Gallery & Class Videos</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mb-8">
+                <div class="col-span-2 rounded-2xl overflow-hidden border border-white/10 min-h-[160px]"><img src="https://images.unsplash.com/photo-1571907480493-aa3d61fd8f0e?w=800&q=80" alt="Dance floor" class="w-full h-full object-cover min-h-[160px]" loading="lazy"></div>
+                <div class="rounded-xl overflow-hidden border border-white/10 aspect-square"><img src="https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=400&q=80" alt="Spin" class="w-full h-full object-cover" loading="lazy"></div>
+                <div class="rounded-xl overflow-hidden border border-white/10 aspect-square"><img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=400&q=80" alt="HIIT" class="w-full h-full object-cover" loading="lazy"></div>
+                <div class="rounded-xl overflow-hidden border border-white/10 aspect-square"><img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&q=80" alt="Instructor" class="w-full h-full object-cover" loading="lazy"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                <div class="rounded-2xl overflow-hidden border border-pink-500/20 bg-white/5"><p class="text-xs text-pink-300 px-4 pt-3 font-bold">Dance cardio sample</p><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/j7rKKpwdXNE" title="Dance HIIT" allowfullscreen loading="lazy"></iframe></div></div>
+                <div class="rounded-2xl overflow-hidden border border-cyan-500/20 bg-white/5"><p class="text-xs text-cyan-300 px-4 pt-3 font-bold">Neon ride sample</p><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/ml6cT4AZdqI" title="Spin class" allowfullscreen loading="lazy"></iframe></div></div>
+            </div>
+            <div class="flex gap-4 overflow-x-auto pb-2 snap-x">
+                <div class="snap-center shrink-0 w-48 p-3 rounded-2xl bg-white/5 border border-white/10"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" class="w-full h-24 object-cover rounded-xl mb-2" alt=""><p class="text-[10px] text-pink-200/70">"3 free classes hooked me — now unlimited."</p></div>
+                <div class="snap-center shrink-0 w-48 p-3 rounded-2xl bg-white/5 border border-white/10"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" class="w-full h-24 object-cover rounded-xl mb-2" alt=""><p class="text-[10px] text-pink-200/70">"Bollywood HIIT is fire 🔥"</p></div>
+            </div>
+        </div>
+    </section>
     <section class="px-4 py-14 border-y border-white/5">
         <div class="max-w-4xl mx-auto">
             <h2 class="font-display text-2xl font-bold text-center mb-8">Studio Passes</h2>
@@ -92,7 +114,7 @@
         </div>
     </div>
     <script>
-        const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html',cur:true},{n:'TITAN',f:'titan_elite_prototype.html'}];
+        const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html',cur:true},{n:'TITAN',f:'titan_elite_prototype.html'}];
         document.getElementById('proto-nav').innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto text-pink-200/50">'+(NAV.map(i=>i.c?`<span class="text-pink-300 bg-pink-500/15 border border-pink-400/30 px-2 py-1 rounded-md">${i.n}</span>`:`<a href="${i.f}" class="hover:text-white px-2 py-1">${i.n}</a>`).join('<span class="text-white/20">|</span>'))+'</div>';
         function openModal(){document.getElementById('modal').classList.remove('hidden')}
         function closeModal(){document.getElementById('modal').classList.add('hidden')}

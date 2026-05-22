@@ -124,6 +124,12 @@
         <button onclick="openBookingModal('Free Kickstart Session')" class="w-full sm:w-auto bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white font-display font-bold py-4 px-10 rounded-2xl text-base shadow-[0_10px_35px_rgba(139,92,246,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all">
             Book 1-Day VIP Pass
         </button>
+        <div class="mt-12 max-w-4xl mx-auto rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl relative aspect-video group">
+            <img src="https://images.unsplash.com/photo-1623874514711-0fe325d1ed93?w=1200&q=80" alt="AURA luxury gym floor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#09090b] via-transparent to-transparent flex items-end justify-center pb-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-violet-300 bg-black/50 px-4 py-2 rounded-full border border-violet-500/30">▶ Facility walkthrough below</span>
+            </div>
+        </div>
     </header>
 
     <section class="px-4 py-12 bg-gradient-to-b from-[#09090b] via-zinc-950 to-[#09090b] border-t border-b border-zinc-900">
@@ -298,6 +304,46 @@
                     </div>
                     <button onclick="openBookingModal('Absolute Elite Plan')" class="w-full bg-zinc-800 hover:bg-zinc-700 text-white font-display font-bold py-3 rounded-xl text-xs transition-all">Select Elite Plan</button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facility Gallery, Videos & Social Proof -->
+    <section class="px-4 py-16 border-t border-zinc-900 bg-[#09090b]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold text-violet-400 tracking-wider uppercase bg-violet-400/10 px-3 py-1 rounded-full">Inside AURA</span>
+                <h2 class="text-3xl font-display font-black mt-3">Facility Gallery & Training Films</h2>
+                <p class="text-zinc-500 text-sm mt-2 max-w-xl mx-auto">Real visuals for client review — equipment zones, classes, recovery lounge, and member stories.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">
+                <div class="col-span-2 md:col-span-2 row-span-2 rounded-2xl overflow-hidden border border-zinc-800 aspect-[4/3] md:aspect-auto md:min-h-[280px]"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80" alt="Main training floor" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"></div>
+                <div class="rounded-2xl overflow-hidden border border-zinc-800 aspect-square"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50e?w=600&q=80" alt="Cardio zone" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"></div>
+                <div class="rounded-2xl overflow-hidden border border-zinc-800 aspect-square"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="Group class" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"></div>
+                <div class="rounded-2xl overflow-hidden border border-zinc-800 aspect-square"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Recovery spa" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"></div>
+                <div class="rounded-2xl overflow-hidden border border-zinc-800 aspect-square"><img src="https://images.unsplash.com/photo-1571907480493-aa3d61fd8f0e?w=600&q=80" alt="Free weights" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <div class="rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950">
+                    <p class="text-xs font-bold text-violet-400 px-4 pt-4 uppercase tracking-wider">Club tour</p>
+                    <div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/ML5aXosVYq4" title="Gym facility tour" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                </div>
+                <div class="rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950">
+                    <p class="text-xs font-bold text-fuchsia-400 px-4 pt-4 uppercase tracking-wider">HIIT class sample</p>
+                    <div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/j7rKKpwdXNE" title="HIIT training" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                </div>
+            </div>
+            <h3 class="font-display font-bold text-xl text-center mb-6">Certified Coaches</h3>
+            <div class="grid sm:grid-cols-3 gap-4 mb-12">
+                <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl overflow-hidden text-center"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80" alt="Coach Arjun" class="w-full h-40 object-cover object-top"><div class="p-4"><p class="font-display font-bold text-sm">Arjun Mehta</p><p class="text-[10px] text-zinc-500">Strength · NASM</p></div></div>
+                <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl overflow-hidden text-center"><img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&q=80" alt="Coach Priya" class="w-full h-40 object-cover object-top"><div class="p-4"><p class="font-display font-bold text-sm">Priya Sharma</p><p class="text-[10px] text-zinc-500">HIIT · Nutrition</p></div></div>
+                <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl overflow-hidden text-center"><img src="https://images.unsplash.com/photo-1567013127542-490d9a099a12?w=400&q=80" alt="Coach Vikram" class="w-full h-40 object-cover"><div class="p-4"><p class="font-display font-bold text-sm">Vikram Singh</p><p class="text-[10px] text-zinc-500">Mobility · Rehab</p></div></div>
+            </div>
+            <h3 class="font-display font-bold text-xl text-center mb-6">Member Transformations</h3>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="p-5 bg-zinc-900/40 border border-zinc-800 rounded-2xl"><div class="flex items-center gap-3 mb-3"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Member" class="w-10 h-10 rounded-full object-cover"><div><p class="text-sm font-bold">Rahul K.</p><p class="text-[10px] text-emerald-400">−12 kg · 4 months</p></div></div><p class="text-xs text-zinc-400 leading-relaxed">"AURA AI diet + Prime coaching changed everything. Best gym in Jaipur."</p></div>
+                <div class="p-5 bg-zinc-900/40 border border-zinc-800 rounded-2xl"><div class="flex items-center gap-3 mb-3"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Member" class="w-10 h-10 rounded-full object-cover"><div><p class="text-sm font-bold">Ananya P.</p><p class="text-[10px] text-emerald-400">Marathon ready</p></div></div><p class="text-xs text-zinc-400 leading-relaxed">"Love the recovery lounge and class schedule. Feels like a private club."</p></div>
+                <div class="p-5 bg-zinc-900/40 border border-zinc-800 rounded-2xl"><div class="flex items-center gap-3 mb-3"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Member" class="w-10 h-10 rounded-full object-cover"><div><p class="text-sm font-bold">Dev S.</p><p class="text-[10px] text-emerald-400">Muscle +8 kg</p></div></div><p class="text-xs text-zinc-400 leading-relaxed">"Equipment is top-tier. Guest pass converted me to Elite same week."</p></div>
             </div>
         </div>
     </section>
@@ -745,7 +791,7 @@
         // Initial Boot Setup
         window.onload = function() {
             switchDay('mon', document.querySelector('.day-tab'));
-            const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html',cur:true},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html'}];
+            const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html',cur:true},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html'}];
             const nav=document.getElementById('proto-nav');
             if(nav) nav.innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto">'+(NAV.map(i=>i.cur?`<span class="text-violet-400 bg-violet-500/10 border border-violet-500/20 px-2 py-1 rounded-md whitespace-nowrap">${i.n}</span>`:`<a href="${i.f}" class="hover:text-white px-2 py-1 whitespace-nowrap">${i.n}</a>`).join('<span class="text-zinc-700">|</span>'))+'</div>';
         }

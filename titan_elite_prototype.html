@@ -49,7 +49,29 @@
             </div>
         </div>
         <button onclick="openModal()" class="border gold gold-text hover:bg-amber-500/10 px-12 py-4 text-xs uppercase tracking-[0.2em] transition-all">Schedule Private Tour</button>
+        <div class="mt-12 max-w-4xl mx-auto border gold overflow-hidden aspect-video">
+            <img src="https://images.unsplash.com/photo-1623874514711-0fe325d1ed93?w=1200&q=80" alt="TITAN private club" class="w-full h-full object-cover opacity-90" loading="lazy">
+        </div>
     </header>
+    <section class="px-6 py-16 border-b gold">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-display text-2xl gold-text text-center mb-8">Club Gallery & Executive Briefings</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mb-8">
+                <div class="col-span-2 border gold overflow-hidden min-h-[200px]"><img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=900&q=80" alt="Private gym" class="w-full h-full object-cover min-h-[200px]" loading="lazy"></div>
+                <div class="border gold overflow-hidden aspect-square"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50e?w=400&q=80" alt="Pool" class="w-full h-full object-cover" loading="lazy"></div>
+                <div class="border gold overflow-hidden aspect-square"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&q=80" alt="Spa" class="w-full h-full object-cover" loading="lazy"></div>
+                <div class="border gold overflow-hidden aspect-square"><img src="https://images.unsplash.com/photo-1574680178050-55c6a6a96ac2?w=400&q=80" alt="Trainer" class="w-full h-full object-cover" loading="lazy"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4 mb-8">
+                <div class="border gold"><p class="text-[10px] uppercase tracking-widest gold-text px-4 pt-3">Private club tour</p><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/ML5aXosVYq4" title="Club tour" allowfullscreen loading="lazy"></iframe></div></div>
+                <div class="border gold"><p class="text-[10px] uppercase tracking-widest gold-text px-4 pt-3">Executive wellness</p><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/UBMk30rjy0w" title="Wellness" allowfullscreen loading="lazy"></iframe></div></div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4 text-sm">
+                <div class="border gold p-5 flex gap-3"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" class="w-12 h-12 rounded-sm object-cover" alt=""><div><p class="gold-text font-display">Mr. Shah · CEO</p><p class="text-xs text-amber-200/40 mt-1">"TITAN is where I take every investor meeting after morning training."</p></div></div>
+                <div class="border gold p-5 flex gap-3"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80" class="w-12 h-12 rounded-sm object-cover" alt=""><div><p class="gold-text font-display">Mrs. Kapoor</p><p class="text-xs text-amber-200/40 mt-1">"Founding Circle — chef, trainer, and concierge in one."</p></div></div>
+            </div>
+        </div>
+    </section>
     <section class="border-y gold py-20 px-6 bg-black/40">
         <div class="max-w-4xl mx-auto">
             <h2 class="font-display text-3xl text-center gold-text mb-12">Membership Tiers</h2>
@@ -94,7 +116,7 @@
         </div>
     </div>
     <script>
-        const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html',cur:true}];
+        const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html',cur:true}];
         document.getElementById('proto-nav').innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto text-amber-200/40">'+(NAV.map(i=>i.c?`<span class="gold-text border gold px-2 py-1 rounded-sm">${i.n}</span>`:`<a href="${i.f}" class="hover:text-amber-100 px-2 py-1">${i.n}</a>`).join('<span class="text-amber-900">|</span>'))+'</div>';
         function openModal(){document.getElementById('modal').classList.remove('hidden')}
         function closeModal(){document.getElementById('modal').classList.add('hidden')}

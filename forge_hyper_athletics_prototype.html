@@ -119,6 +119,9 @@
                 Launch Tactical Timer
             </button>
         </div>
+        <div class="mt-12 max-w-4xl mx-auto rounded-2xl overflow-hidden border-2 border-cyber-orange/40 aspect-video shadow-neon-orange">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&q=80" alt="FORGE training floor" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy">
+        </div>
     </header>
 
     <!-- Interactive Anatomy & Target Section -->
@@ -433,6 +436,32 @@
                     <button onclick="openBookingModal('Chronos Black VIP Plan')" class="w-full bg-zinc-900 hover:bg-cyber-card border border-zinc-800 text-white font-display font-bold py-3.5 rounded-xl text-xs transition-all uppercase tracking-wider">Secure Threshold</button>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- FORGE Media Hub: Gallery, Video Reels, Athletes -->
+    <section class="px-4 py-16 border-t border-zinc-900 bg-cyber-bg">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold text-cyber-cyan tracking-widest uppercase bg-cyber-cyan/10 px-3 py-1 rounded-full border border-cyber-cyan/20">Visual Intel</span>
+                <h2 class="text-3xl font-display font-bold uppercase mt-3">Facility Recon & Combat Footage</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-10">
+                <div class="col-span-2 row-span-2 rounded-xl overflow-hidden border border-zinc-800 min-h-[200px]"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=900&q=80" alt="Power rack zone" class="w-full h-full object-cover min-h-[200px]" loading="lazy"></div>
+                <div class="rounded-xl overflow-hidden border border-zinc-800 aspect-square"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&q=80" alt="Gym floor" class="w-full h-full object-cover" loading="lazy"></div>
+                <div class="rounded-xl overflow-hidden border border-zinc-800 aspect-square"><img src="https://images.unsplash.com/photo-1574680096145-05c9cdd5de63?w=500&q=80" alt="Athlete training" class="w-full h-full object-cover" loading="lazy"></div>
+                <div class="rounded-xl overflow-hidden border border-zinc-800 aspect-square"><img src="https://images.unsplash.com/photo-1517963879437-704654027885?w=500&q=80" alt="Outdoor sprint" class="w-full h-full object-cover" loading="lazy"></div>
+                <div class="rounded-xl overflow-hidden border border-zinc-800 aspect-square"><img src="https://images.unsplash.com/photo-1599058917765-a2eda7bb34b2?w=500&q=80" alt="Recovery zone" class="w-full h-full object-cover" loading="lazy"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4 mb-10">
+                <div class="border border-zinc-800 rounded-2xl overflow-hidden bg-cyber-card"><p class="text-[10px] font-black text-cyber-orange px-4 pt-3 uppercase tracking-widest">// Facility Reel</p><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/LKlFfhhVPE0" title="Gym training reel" allowfullscreen loading="lazy"></iframe></div></div>
+                <div class="border border-zinc-800 rounded-2xl overflow-hidden bg-cyber-card"><p class="text-[10px] font-black text-cyber-cyan px-4 pt-3 uppercase tracking-widest">// HIIT Protocol</p><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/j7rKKpwdXNE" title="HIIT protocol" allowfullscreen loading="lazy"></iframe></div></div>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-4">
+                <div class="border border-zinc-800 rounded-2xl overflow-hidden bg-cyber-card"><img src="https://images.unsplash.com/photo-1597347316205-36f6c451902a?w=400&q=80" class="w-full h-36 object-cover" alt="Coach"><div class="p-3"><p class="font-display text-sm uppercase text-cyber-orange">Coach Rex</p><p class="text-[10px] text-zinc-500">Powerlifting · Strongman</p></div></div>
+                <div class="border border-zinc-800 rounded-2xl overflow-hidden bg-cyber-card"><img src="https://images.unsplash.com/photo-1583454110551-21f2efe2b61d?w=400&q=80" class="w-full h-36 object-cover" alt="Coach"><div class="p-3"><p class="font-display text-sm uppercase text-cyber-cyan">Coach Nova</p><p class="text-[10px] text-zinc-500">HIIT · Bioscan</p></div></div>
+                <div class="border border-zinc-800 rounded-2xl p-4"><p class="text-xs text-zinc-400 mb-2">"FORGE changed my prep for nationals. The AI core is insane."</p><div class="flex items-center gap-2"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80" class="w-8 h-8 rounded-full object-cover" alt=""><span class="text-xs font-bold">Karan T. · Elite</span></div></div>
             </div>
         </div>
     </section>
@@ -1025,7 +1054,7 @@
         // Initial launch configuration
         window.onload = function() {
             selectMuscle('Chest', document.getElementById('chest'));
-            const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html',cur:true},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html'}];
+            const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html',cur:true},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html'}];
             const nav=document.getElementById('proto-nav');
             if(nav) nav.innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto">'+(NAV.map(i=>i.cur?`<span class="text-cyber-orange bg-cyber-orange/10 border border-cyber-orange/20 px-2 py-1 rounded-md whitespace-nowrap">${i.n}</span>`:`<a href="${i.f}" class="hover:text-cyber-cyan px-2 py-1 whitespace-nowrap">${i.n}</a>`).join('<span class="text-zinc-700">|</span>'))+'</div>';
         }

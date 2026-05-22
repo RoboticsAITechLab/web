@@ -30,7 +30,31 @@
             <span class="px-4 py-2 rounded-full bg-white border border-stone-200 text-xs font-medium">💆 Recovery Suite</span>
         </div>
         <button onclick="openModal()" class="bg-stone-900 text-white px-10 py-4 rounded-full font-semibold hover:bg-stone-800 transition-all">7-Day Wellness Pass — ₹999</button>
+        <div class="mt-10 max-w-3xl mx-auto rounded-3xl overflow-hidden border border-stone-200 shadow-md aspect-video">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1100&q=80" alt="ZENITH spa lounge" class="w-full h-full object-cover" loading="lazy">
+        </div>
     </header>
+    <section class="px-4 py-14 bg-white border-b border-stone-200">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-display text-2xl text-center text-stone-900 mb-8">Wellness Spaces & Class Films</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8">
+                <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden min-h-[180px]"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80" alt="Yoga deck" class="w-full h-full object-cover" loading="lazy"></div>
+                <div class="rounded-xl overflow-hidden aspect-square"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80" alt="Stretch class" class="w-full h-full object-cover" loading="lazy"></div>
+                <div class="rounded-xl overflow-hidden aspect-square"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50e?w=400&q=80" alt="Pool" class="w-full h-full object-cover" loading="lazy"></div>
+                <div class="rounded-xl overflow-hidden aspect-square"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&q=80" alt="Massage" class="w-full h-full object-cover" loading="lazy"></div>
+                <div class="rounded-xl overflow-hidden aspect-square"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&q=80" alt="Juice bar" class="w-full h-full object-cover" loading="lazy"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4 mb-8">
+                <div class="rounded-2xl overflow-hidden border border-stone-200"><p class="text-xs font-semibold text-zen-sage px-4 pt-3">Sauna & breathwork tour</p><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/UBMk30rjy0w" title="Wellness tour" allowfullscreen loading="lazy"></iframe></div></div>
+                <div class="rounded-2xl overflow-hidden border border-stone-200"><p class="text-xs font-semibold text-zen-sage px-4 pt-3">Gentle yoga sample</p><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/VaoV1PrYft4" title="Yoga sample" allowfullscreen loading="lazy"></iframe></div></div>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-3 text-center text-sm">
+                <div class="p-4 bg-zen-cream rounded-2xl border border-stone-200"><img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=300&q=80" class="w-16 h-16 rounded-full object-cover mx-auto mb-2" alt=""><p class="font-semibold">Dr. Anya</p><p class="text-xs text-stone-400">Recovery lead</p></div>
+                <div class="p-4 bg-zen-cream rounded-2xl border border-stone-200"><p class="text-xs text-stone-500 italic mb-2">"Best cold plunge in Jaipur."</p><p class="font-semibold text-xs">— Rohit M.</p></div>
+                <div class="p-4 bg-zen-cream rounded-2xl border border-stone-200"><p class="text-xs text-stone-500 italic mb-2">"Sanctuary tier is worth every rupee."</p><p class="font-semibold text-xs">— Pooja K.</p></div>
+            </div>
+        </div>
+    </section>
     <section class="bg-white border-y border-stone-200 py-16 px-4">
         <div class="max-w-4xl mx-auto">
             <h2 class="font-display text-3xl text-center text-stone-900 mb-8">Membership</h2>
@@ -65,7 +89,7 @@
         </div>
     </div>
     <script>
-        const NAV=[{n:'Gallery',f:'index.html',c:false},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html',cur:true},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html'}];
+        const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html',cur:true},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html'}];
         document.getElementById('proto-nav').innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto">'+(NAV.map(i=>i.c?`<span class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md">${i.n}</span>`:`<a href="${i.f}" class="hover:text-stone-900 px-2 py-1">${i.n}</a>`).join('<span class="text-stone-300">|</span>'))+'</div>';
         function openModal(){document.getElementById('modal').classList.remove('hidden')}
         function closeModal(){document.getElementById('modal').classList.add('hidden')}
