@@ -114,7 +114,7 @@
         </div>
     </div>
     <script>
-        const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html',cur:true},{n:'TITAN',f:'titan_elite_prototype.html'}];
+        const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html'},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html',cur:true},{n:'TITAN',f:'titan_elite_prototype.html',{n:'APEX',f:'apex_crossfit_prototype.html'},{n:'NOVA',f:'nova_24x7_prototype.html'},{n:'ELIXIR',f:'elixir_womens_prototype.html'},{n:'VELOCITY',f:'velocity_run_club_prototype.html'}];
         document.getElementById('proto-nav').innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto text-pink-200/50">'+(NAV.map(i=>i.c?`<span class="text-pink-300 bg-pink-500/15 border border-pink-400/30 px-2 py-1 rounded-md">${i.n}</span>`:`<a href="${i.f}" class="hover:text-white px-2 py-1">${i.n}</a>`).join('<span class="text-white/20">|</span>'))+'</div>';
         function openModal(){document.getElementById('modal').classList.remove('hidden')}
         function closeModal(){document.getElementById('modal').classList.add('hidden')}

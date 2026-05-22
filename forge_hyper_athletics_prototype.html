@@ -1054,7 +1054,7 @@
         // Initial launch configuration
         window.onload = function() {
             selectMuscle('Chest', document.getElementById('chest'));
-            const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html',cur:true},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html'}];
+            const NAV=[{n:'Gallery',f:'index.html'},{n:'AURA',f:'modern_gym_prototype.html'},{n:'FORGE',f:'forge_hyper_athletics_prototype.html',cur:true},{n:'PRANA',f:'prana_holistic_gym_prototype.html'},{n:'ZENITH',f:'zenith_wellness_prototype.html'},{n:'IRON',f:'ironcore_brutalist_prototype.html'},{n:'PULSE',f:'pulse_studio_prototype.html'},{n:'TITAN',f:'titan_elite_prototype.html',{n:'APEX',f:'apex_crossfit_prototype.html'},{n:'NOVA',f:'nova_24x7_prototype.html'},{n:'ELIXIR',f:'elixir_womens_prototype.html'},{n:'VELOCITY',f:'velocity_run_club_prototype.html'}];
             const nav=document.getElementById('proto-nav');
             if(nav) nav.innerHTML='<div class="flex gap-2 min-w-max max-w-6xl mx-auto">'+(NAV.map(i=>i.cur?`<span class="text-cyber-orange bg-cyber-orange/10 border border-cyber-orange/20 px-2 py-1 rounded-md whitespace-nowrap">${i.n}</span>`:`<a href="${i.f}" class="hover:text-cyber-cyan px-2 py-1 whitespace-nowrap">${i.n}</a>`).join('<span class="text-zinc-700">|</span>'))+'</div>';
         }

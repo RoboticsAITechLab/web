@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA | 24/7 Smart Fitness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif'],mono:['JetBrains Mono','monospace']},colors:{nova:{blue:'#3b82f6',dark:'#0f172a'}}}}}</script>
+    <style>body{background:#0f172a}::-webkit-scrollbar-thumb{background:#3b82f6}</style>
+</head>
+<body class="text-slate-100 font-sans">
+    <div id="proto-nav" class="sticky top-0 z-[60] bg-slate-950/95 border-b border-slate-800 px-3 py-2 overflow-x-auto text-[10px] sm:text-xs"></div>
+    <nav class="border-b border-slate-800 px-4 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-9 h-9 rounded-lg bg-nova-blue flex items-center justify-center font-mono font-bold text-sm shadow-lg shadow-blue-500/30">N</div>
+                <div><span class="font-bold text-xl">NOVA</span><span class="font-mono text-[10px] text-nova-blue block">24/7 SMART GYM</span></div>
+            </div>
+            <button onclick="openModal()" class="bg-nova-blue hover:bg-blue-500 text-white font-semibold text-sm px-5 py-2.5 rounded-lg">App Free Trial</button>
+        </div>
+    </nav>
+    <header class="max-w-6xl mx-auto px-4 pt-12 pb-16">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+                <span class="font-mono text-xs text-nova-blue border border-blue-500/30 px-2 py-1 rounded">● SYSTEM ONLINE — JAIPUR × 3 LOCATIONS</span>
+                <h1 class="text-4xl sm:text-5xl font-bold mt-6 mb-4 leading-tight">Gym That Never Sleeps.<br/><span class="text-nova-blue">App That Runs Everything.</span></h1>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Face-scan entry, smart machine tracking, live occupancy map, AI workout builder, and budget plans from ₹999/mo. Train at 3 AM — nobody judges.</p>
+                <ul class="text-xs text-slate-400 space-y-2 mb-8 font-mono">
+                    <li>▸ QR + face unlock in 2 sec</li>
+                    <li>▸ Occupancy live: <span class="text-emerald-400" id="occ">34%</span> full now</li>
+                    <li>▸ 200+ connected machines</li>
+                </ul>
+                <button onclick="openModal()" class="bg-nova-blue px-8 py-3 rounded-lg font-semibold hover:bg-blue-500 transition-colors">Start 7-Day App Trial</button>
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-slate-700 aspect-video shadow-2xl shadow-blue-500/10">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1000&q=80" alt="NOVA gym" class="w-full h-full object-cover" loading="lazy">
+            </div>
+        </div>
+    </header>
+    <section class="border-y border-slate-800 bg-slate-900/50 py-14 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-mono text-sm text-nova-blue mb-2">// LIVE_FEATURES</h2>
+            <h3 class="text-2xl font-bold mb-8">Smart Gym Stack</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-slate-950 border border-slate-800 p-5 rounded-xl"><span class="text-2xl">📱</span><p class="font-bold text-sm mt-3">NOVA App</p><p class="text-xs text-slate-500 mt-1">Programs, PRs, diet logs, buddy challenges</p></div>
+                <div class="bg-slate-950 border border-slate-800 p-5 rounded-xl"><span class="text-2xl">🧠</span><p class="font-bold text-sm mt-3">AI Builder</p><p class="text-xs text-slate-500 mt-1">Custom splits in 30 seconds</p></div>
+                <div class="bg-slate-950 border border-slate-800 p-5 rounded-xl"><span class="text-2xl">📊</span><p class="font-bold text-sm mt-3">Smart Tracking</p><p class="text-xs text-slate-500 mt-1">Auto log reps on cable stations</p></div>
+                <div class="bg-slate-950 border border-slate-800 p-5 rounded-xl"><span class="text-2xl">🌙</span><p class="font-bold text-sm mt-3">24/7 Access</p><p class="text-xs text-slate-500 mt-1">Staffed 6am–10pm · unmanned safe hours</p></div>
+            </div>
+        </div>
+    </section>
+    <section class="py-14 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl font-bold text-center mb-8">Gallery & App Walkthrough</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8">
+                <div class="col-span-2 row-span-2 rounded-xl overflow-hidden border border-slate-700 min-h-[180px]"><img src="https://images.unsplash.com/photo-1623874514711-0fe325d1ed93?w=800&q=80" class="w-full h-full object-cover min-h-[180px]" loading="lazy" alt=""></div>
+                <div class="rounded-lg overflow-hidden border border-slate-700 aspect-square"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50e?w=400&q=80" class="w-full h-full object-cover" loading="lazy" alt=""></div>
+                <div class="rounded-lg overflow-hidden border border-slate-700 aspect-square"><img src="https://images.unsplash.com/photo-1571907480493-aa3d61fd8f0e?w=400&q=80" class="w-full h-full object-cover" loading="lazy" alt=""></div>
+                <div class="rounded-lg overflow-hidden border border-slate-700 aspect-square"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80" class="w-full h-full object-cover" loading="lazy" alt=""></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4 mb-10">
+                <div class="rounded-xl border border-slate-700 overflow-hidden"><p class="font-mono text-xs text-nova-blue px-4 pt-3">facility_tour.mp4</p><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/ML5aXosVYq4" allowfullscreen loading="lazy"></iframe></div></div>
+                <div class="rounded-xl border border-slate-700 overflow-hidden"><p class="font-mono text-xs text-nova-blue px-4 pt-3">app_demo.mp4</p><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/LKlFfhhVPE0" allowfullscreen loading="lazy"></iframe></div></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4 text-sm">
+                <div class="p-4 bg-slate-900 rounded-xl border border-slate-800"><img src="https://images.unsplash.com/photo-1567013127542-490d9a099a12?w=300&q=80" class="w-12 h-12 rounded-full object-cover mb-2" alt=""><p class="font-bold">Student Plan</p><p class="text-nova-blue font-mono text-2xl font-bold mt-1">₹999</p><p class="text-xs text-slate-500">/mo · off-peak + app</p></div>
+                <div class="p-4 bg-blue-500/10 rounded-xl border-2 border-nova-blue"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80" class="w-12 h-12 rounded-full object-cover mb-2" alt=""><p class="font-bold">NOVA Plus ★</p><p class="text-nova-blue font-mono text-2xl font-bold mt-1">₹1,799</p><p class="text-xs text-slate-500">/mo · 24/7 + guest pass</p></div>
+                <div class="p-4 bg-slate-900 rounded-xl border border-slate-800"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80" class="w-12 h-12 rounded-full object-cover mb-2" alt=""><p class="font-bold">Annual Pro</p><p class="text-nova-blue font-mono text-2xl font-bold mt-1">₹14,999</p><p class="text-xs text-slate-500">/yr · all locations</p></div>
+            </div>
+        </div>
+    </section>
+    <section class="py-12 px-4 max-w-lg mx-auto">
+        <h2 class="text-xl font-bold text-center mb-4">Goal Calculator</h2>
+        <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl font-mono text-sm">
+            <label class="text-slate-500 text-xs block mb-1">Target (kg to lose/gain)</label>
+            <input type="number" id="goal" value="5" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 mb-3">
+            <button onclick="calcGoal()" class="w-full bg-nova-blue py-3 rounded-lg font-sans font-semibold">Generate 8-Week Plan</button>
+            <p id="goalOut" class="hidden mt-4 text-xs text-slate-400 leading-relaxed"></p>
+        </div>
+    </section>
+    <section class="py-10 px-4 max-w-2xl mx-auto border-t border-slate-800">
+        <h2 class="font-bold text-center mb-4">Member Reviews</h2>
+        <div class="space-y-3">
+            <div class="flex gap-3 p-4 bg-slate-900/80 rounded-xl border border-slate-800"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80" class="w-10 h-10 rounded-full object-cover" alt=""><div><p class="text-xs text-slate-300">"3 AM workouts hit different. App occupancy map is clutch."</p><p class="text-[10px] text-nova-blue mt-1 font-mono">— Karan · Plus member</p></div></div>
+            <div class="flex gap-3 p-4 bg-slate-900/80 rounded-xl border border-slate-800"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80" class="w-10 h-10 rounded-full object-cover" alt=""><div><p class="text-xs text-slate-300">"₹999 student plan — best deal in Jaipur honestly."</p><p class="text-[10px] text-nova-blue mt-1 font-mono">— Neha · Student</p></div></div>
+        </div>
+    </section>
+    <footer class="text-center py-8 text-xs text-slate-600 font-mono">NOVA 24/7 Prototype</footer>
+    <div id="modal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-700 p-8 max-w-sm w-full rounded-xl">
+            <h3 class="font-bold text-nova-blue mb-4">App Trial Signup</h3>
+            <form onsubmit="event.preventDefault();closeModal();alert('NOVA: App trial activated!');">
+                <input required placeholder="Mobile number" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 mb-3 text-sm">
+                <input required placeholder="Email" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 mb-4 text-sm">
+                <button class="w-full bg-nova-blue py-3 rounded-lg font-semibold text-sm">Get OTP</button>
+            </form>
+            <button onclick="closeModal()" class="mt-3 w-full text-xs text-slate-500">Close</button>
+        </div>
+    </div>
+    <script src="prototype-nav.js"></script>
+    <script>
+        initPrototypeNav('nova_24x7_prototype.html', 'text-nova-blue bg-blue-500/10 border border-blue-500/30 px-2 py-1 rounded-md', 'text-slate-500 hover:text-white');
+        setInterval(function(){document.getElementById('occ').textContent=(20+Math.floor(Math.random()*50))+'%';},4000);
+        function openModal(){document.getElementById('modal').classList.remove('hidden')}
+        function closeModal(){document.getElementById('modal').classList.add('hidden')}
+        function calcGoal(){var g=+document.getElementById('goal').value;document.getElementById('goalOut').classList.remove('hidden');document.getElementById('goalOut').textContent='NOVA AI: '+g+'kg target → 4× strength + 3× cardio/week, 2200 kcal baseline, deload week 5.';}
+    </script>
+</body>
+</html>
