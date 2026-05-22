@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA | Modern Luxury Fitness Prototype with AI</title>
-    <!-- Tailwind CSS Integration -->
+    <title>Prototype Gallery | Client Preview</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Premium Google Fonts: Outfit for sporty tech feel & Inter for readability -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -16,734 +13,88 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         display: ['Outfit', 'sans-serif'],
-                    },
-                    colors: {
-                        accent: {
-                            glow: '#ff2a5f',
-                            violet: '#8b5cf6',
-                            emerald: '#10b981'
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     }
                 }
             }
         }
     </script>
     <style>
-        .glow-effect:hover {
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
-        }
-        /* Custom scrollbar to keep it looking clean and futuristic */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #09090b;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #27272a;
-            border-radius: 9999px;
-        }
-        .ai-chat-bubble {
-            max-width: 85%;
-            word-wrap: break-word;
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 9999px; }
+        .card-glow-violet:hover { box-shadow: 0 0 40px rgba(139, 92, 246, 0.2); }
+        .card-glow-orange:hover { box-shadow: 0 0 40px rgba(255, 90, 0, 0.2); }
     </style>
 </head>
-<body class="bg-[#09090b] text-zinc-100 font-sans selection:bg-violet-600 selection:text-white overflow-x-hidden">
+<body class="bg-[#09090b] text-zinc-100 font-sans min-h-screen selection:bg-violet-600 selection:text-white">
 
-    <!-- Sticky Glassmorphism Header -->
-    <nav class="sticky top-0 w-full z-50 bg-[#09090b]/80 backdrop-blur-md border-b border-zinc-900 px-4 py-3 sm:px-6">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-violet-600 to-fuchsia-600 flex items-center justify-center font-display font-black text-white text-lg shadow-[0_0_15px_rgba(139,92,246,0.3)]">A</div>
-                <span class="font-display font-black text-2xl tracking-tight bg-gradient-to-r from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent">AURA</span>
+    <header class="border-b border-zinc-800/80 bg-[#09090b]/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div>
+                <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-500 mb-1">Client preview</p>
+                <h1 class="font-display font-black text-2xl sm:text-3xl tracking-tight text-white">Prototype Gallery</h1>
             </div>
-            
-            <div class="flex items-center gap-3">
-                <span class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20">
-                    <span class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse"></span> AURA AI Live
-                </span>
-                <span class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Jaipur Edition
-                </span>
-                <button onclick="openBookingModal('General Query')" class="bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:scale-105 active:scale-95 text-white px-5 py-2 rounded-xl font-display font-bold text-xs sm:text-sm tracking-wide shadow-[0_4px_20px_rgba(139,92,246,0.25)] transition-all">
-                    Free Guest Pass
-                </button>
-            </div>
+            <span class="inline-flex self-start items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                2 live demos
+            </span>
         </div>
-    </nav>
-
-    <header class="relative px-4 pt-12 pb-16 sm:pb-24 max-w-6xl mx-auto text-center overflow-hidden">
-        <!-- Grid overlay behind hero for futuristic depth -->
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f1f2e_1px,transparent_1px),linear-gradient(to_bottom,#1f1f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20 -z-10"></div>
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[350px] h-[350px] rounded-full bg-gradient-to-tr from-violet-600/10 to-fuchsia-500/10 blur-[120px] -z-10"></div>
-
-        <div class="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 px-3.5 py-1.5 rounded-full text-xs font-medium text-zinc-400 mb-6 shadow-sm hover:border-zinc-700 transition-colors">
-            ✨ <span class="text-zinc-200 font-semibold">Introducing:</span> Hyper-Personalized AI Fitness Coaches
-        </div>
-        
-        <h1 class="text-4xl sm:text-6xl font-display font-black leading-[1.1] tracking-tight mb-6 max-w-4xl mx-auto">
-            Not Just A Gym.<br/>
-            <span class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-rose-400 bg-clip-text text-transparent">A High-Performance AI Club.</span>
-        </h1>
-        
-        <p class="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto mb-10 leading-relaxed">
-            Experience Jaipur’s most advanced custom training programs. Modern equipment, automated AI coaching, real-time biometrics, and custom smart nutrition plans.
-        </p>
-
-        <!-- Dynamic Action Cards / Quick Links -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mb-14 text-left">
-            <div onclick="openAICoach('workout_plan')" class="p-5 bg-zinc-900/40 backdrop-blur border border-zinc-800/80 rounded-2xl hover:border-violet-500/50 transition-all cursor-pointer group">
-                <span class="text-2xl block mb-2 group-hover:scale-110 transition-transform duration-300">🤖</span>
-                <h3 class="font-display font-bold text-sm text-zinc-100 mb-1 flex items-center justify-between">
-                    <span>AURA AI Coach</span>
-                    <span class="text-[10px] bg-violet-600/20 text-violet-400 px-1.5 py-0.5 rounded">Try Now</span>
-                </h3>
-                <p class="text-xs text-zinc-500 leading-snug">Generate a real-time customized workout routine on-demand.</p>
-            </div>
-            <div onclick="openAICoach('diet_plan')" class="p-5 bg-zinc-900/40 backdrop-blur border border-zinc-800/80 rounded-2xl hover:border-fuchsia-500/50 transition-all cursor-pointer group">
-                <span class="text-2xl block mb-2 group-hover:scale-110 transition-transform duration-300">⚡</span>
-                <h3 class="font-display font-bold text-sm text-zinc-100 mb-1 flex items-center justify-between">
-                    <span>AI Nutritionist</span>
-                    <span class="text-[10px] bg-fuchsia-600/20 text-fuchsia-400 px-1.5 py-0.5 rounded">Try Now</span>
-                </h3>
-                <p class="text-xs text-zinc-500 leading-snug">Generate localized smart diet plans based on your target weight.</p>
-            </div>
-            <div class="p-5 bg-zinc-900/40 backdrop-blur border border-zinc-800/80 rounded-2xl hover:border-rose-500/30 transition-all group">
-                <span class="text-2xl block mb-2 group-hover:scale-110 transition-transform duration-300">🥤</span>
-                <h3 class="font-display font-bold text-sm text-zinc-100 mb-1">Wellness Bar</h3>
-                <p class="text-xs text-zinc-500 leading-snug">Personalized customized recovery dynamic shakes and metrics.</p>
-            </div>
-        </div>
-
-        <button onclick="openBookingModal('Free Kickstart Session')" class="w-full sm:w-auto bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white font-display font-bold py-4 px-10 rounded-2xl text-base shadow-[0_10px_35px_rgba(139,92,246,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all">
-            Book 1-Day VIP Pass
-        </button>
     </header>
 
-    <section class="px-4 py-12 bg-gradient-to-b from-[#09090b] via-zinc-950 to-[#09090b] border-t border-b border-zinc-900">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-8">
-                <span class="text-xs font-bold text-violet-400 tracking-wider uppercase bg-violet-400/10 px-3 py-1 rounded-full">AI Driven Diagnostic Tools</span>
-                <h2 class="text-2xl sm:text-3xl font-display font-black mt-2">Instant BMI & Body Status</h2>
-                <p class="text-zinc-500 text-xs sm:text-sm mt-1">Check your score and generate an immediate customized smart fitness trajectory using Gemini AI.</p>
-            </div>
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+        <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mb-10 leading-relaxed">
+            Select a prototype below to open the full interactive demo. Each link opens in this tab — use your browser back button or the bar inside each demo to return here.
+        </p>
 
-            <div class="bg-zinc-900/60 border border-zinc-800 p-6 rounded-3xl max-w-xl mx-auto shadow-xl">
-                <div class="grid grid-cols-2 gap-4 mb-5">
-                    <div>
-                        <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Height (cm)</label>
-                        <input type="number" id="bmiHeight" placeholder="e.g. 175" class="w-full bg-zinc-950 border border-zinc-800 focus:border-violet-500 focus:ring-1 focus:ring-violet-500 text-white p-3 rounded-xl outline-none transition-all text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Weight (kg)</label>
-                        <input type="number" id="bmiWeight" placeholder="e.g. 70" class="w-full bg-zinc-950 border border-zinc-800 focus:border-violet-500 focus:ring-1 focus:ring-violet-500 text-white p-3 rounded-xl outline-none transition-all text-sm">
-                    </div>
+        <div class="grid gap-6 sm:grid-cols-2">
+
+            <!-- AURA -->
+            <a href="modern_gym_prototype.html"
+               class="group card-glow-violet block rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 sm:p-8 transition-all duration-300 hover:border-violet-500/50 hover:-translate-y-0.5">
+                <div class="flex items-start justify-between gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-violet-600 to-fuchsia-600 flex items-center justify-center font-display font-black text-xl text-white shadow-[0_0_20px_rgba(139,92,246,0.35)]">A</div>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-violet-400 bg-violet-500/10 border border-violet-500/20 px-2 py-1 rounded-md">Luxury</span>
                 </div>
+                <h2 class="font-display font-black text-xl sm:text-2xl text-white mb-2 group-hover:text-violet-200 transition-colors">AURA</h2>
+                <p class="text-sm text-zinc-400 mb-6 leading-relaxed">Modern luxury fitness with AI concierge, Jaipur edition branding, guest pass flow, and premium glass UI.</p>
+                <ul class="text-xs text-zinc-500 space-y-1.5 mb-8">
+                    <li class="flex items-center gap-2"><span class="text-violet-500">●</span> AI chat & booking modal</li>
+                    <li class="flex items-center gap-2"><span class="text-violet-500">●</span> Violet / fuchsia theme</li>
+                    <li class="flex items-center gap-2"><span class="text-violet-500">●</span> Mobile-first layout</li>
+                </ul>
+                <span class="inline-flex items-center gap-2 font-display font-bold text-sm text-violet-400 group-hover:text-white transition-colors">
+                    Open prototype
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </span>
+            </a>
 
-                <button onclick="calculateBMI()" class="w-full bg-zinc-850 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-600 text-white font-display font-bold py-3 rounded-xl text-sm transition-all shadow-md">
-                    Calculate BMI Score
-                </button>
-
-                <!-- Hidden by default, slides down on action -->
-                <div id="bmiResultBox" class="hidden mt-6 pt-5 border-t border-zinc-800/80 transition-all duration-300">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <span class="text-xs text-zinc-500 font-medium block">Your Calculated BMI</span>
-                            <span id="bmiValue" class="text-3xl sm:text-4xl font-display font-black text-violet-400">22.8</span>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-xs text-zinc-500 font-medium block">Health Category</span>
-                            <span id="bmiStatus" class="inline-block font-display font-bold text-sm px-3 py-1 rounded-lg mt-1">Normal Weight</span>
-                        </div>
-                    </div>
-                    <div class="mt-4 p-3 bg-violet-600/10 border border-violet-500/20 rounded-xl text-xs text-zinc-300 leading-relaxed">
-                        💡 <span class="font-semibold text-white">Coach Recommendation:</span> <span id="bmiTip">Excellent starting point! Join Aura to push for absolute peak athletic design performance.</span>
-                    </div>
-
-                    <!-- AI Extension inside BMI Calculator -->
-                    <div class="mt-5 pt-4 border-t border-zinc-800">
-                        <button onclick="getAIBMIAnalysis()" id="aiBmiBtn" class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white font-display font-semibold py-3 px-4 rounded-xl text-xs tracking-wider transition-all shadow-[0_4px_15px_rgba(139,92,246,0.2)]">
-                            <span>🤖</span> Ask AURA AI for custom Workout & Diet Plan
-                        </button>
-
-                        <div id="aiBmiLoader" class="hidden mt-4 text-center">
-                            <div class="inline-flex items-center gap-2 text-xs text-violet-400 animate-pulse">
-                                <span class="w-2 h-2 rounded-full bg-violet-400 animate-ping"></span>
-                                AURA AI is analyzing your stats & formulating strategy...
-                            </div>
-                        </div>
-
-                        <div id="aiBmiResult" class="hidden mt-4 p-4 bg-zinc-950 border border-zinc-800 rounded-2xl text-xs leading-relaxed max-h-72 overflow-y-auto">
-                            <!-- Populated dynamically via Gemini API -->
-                        </div>
-                    </div>
+            <!-- FORGE -->
+            <a href="forge_hyper_athletics_prototype.html"
+               class="group card-glow-orange block rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 sm:p-8 transition-all duration-300 hover:border-orange-500/50 hover:-translate-y-0.5">
+                <div class="flex items-start justify-between gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ff5a00] to-red-600 flex items-center justify-center font-display font-black text-lg text-white shadow-[0_0_20px_rgba(255,90,0,0.35)]">//F</div>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-orange-400 bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded-md">Elite</span>
                 </div>
-            </div>
-        </div>
-    </section>
+                <h2 class="font-display font-black text-xl sm:text-2xl text-white mb-1 group-hover:text-orange-200 transition-colors">FORGE</h2>
+                <p class="text-[10px] font-bold text-cyan-400 tracking-widest uppercase mb-2">Hyper-Athletics</p>
+                <p class="text-sm text-zinc-400 mb-6 leading-relaxed">Cyber elite training system with FORGE AI core, neon orange/cyan UI, and high-performance athlete positioning.</p>
+                <ul class="text-xs text-zinc-500 space-y-1.5 mb-8">
+                    <li class="flex items-center gap-2"><span class="text-orange-500">●</span> FORGE AI core UX</li>
+                    <li class="flex items-center gap-2"><span class="text-orange-500">●</span> Orange / cyan cyber theme</li>
+                    <li class="flex items-center gap-2"><span class="text-orange-500">●</span> Extended sections & flows</li>
+                </ul>
+                <span class="inline-flex items-center gap-2 font-display font-bold text-sm text-orange-400 group-hover:text-white transition-colors">
+                    Open prototype
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </span>
+            </a>
 
-    <section class="px-4 py-16 max-w-6xl mx-auto">
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-8">
-            <div>
-                <span class="text-xs font-bold text-fuchsia-400 tracking-wider uppercase bg-fuchsia-400/10 px-3 py-1 rounded-full">Explore Classes</span>
-                <h2 class="text-3xl font-display font-black mt-3">Live Dynamic Batches</h2>
-                <p class="text-zinc-500 text-sm mt-1">Toggle between active training sessions mapped directly with certified experts.</p>
-            </div>
-            
-            <!-- Day Selector Tabs -->
-            <div class="flex gap-1.5 bg-zinc-900 border border-zinc-800 p-1 rounded-xl w-full sm:w-auto">
-                <button onclick="switchDay('mon', this)" class="day-tab flex-1 sm:flex-initial text-xs font-bold px-4 py-2 rounded-lg bg-violet-600 text-white transition-all">MON / TUE</button>
-                <button onclick="switchDay('wed', this)" class="day-tab flex-1 sm:flex-initial text-xs font-bold px-4 py-2 rounded-lg text-zinc-400 hover:text-white transition-all">WED / THU</button>
-                <button onclick="switchDay('fri', this)" class="day-tab flex-1 sm:flex-initial text-xs font-bold px-4 py-2 rounded-lg text-zinc-400 hover:text-white transition-all">FRI / SAT</button>
-            </div>
         </div>
 
-        <!-- Schedule Container -->
-        <div id="scheduleGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <!-- Dynamically populated via JS -->
-        </div>
-    </section>
+        <p class="mt-12 text-center text-xs text-zinc-600">
+            Interactive HTML prototypes · For client review only
+        </p>
+    </main>
 
-    <!-- Membership Packages with Switcher -->
-    <section class="px-4 py-16 bg-gradient-to-b from-[#09090b] to-zinc-950 border-t border-zinc-900">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-10">
-                <span class="text-xs font-bold text-rose-400 tracking-wider uppercase bg-rose-400/10 px-3 py-1 rounded-full">Flexible Pricing</span>
-                <h2 class="text-3xl font-display font-black mt-3">Ready to Start?</h2>
-                <p class="text-zinc-500 text-sm mt-1">Pick a perfect plan suited for your health and growth objectives.</p>
-
-                <!-- Billing Cycle Toggle -->
-                <div class="inline-flex items-center gap-3 bg-zinc-900 border border-zinc-800 p-1.5 rounded-full mt-6">
-                    <button id="monthlyToggle" onclick="toggleBilling('monthly')" class="text-xs font-bold px-4 py-1.5 rounded-full bg-zinc-800 text-white transition-all">Monthly</button>
-                    <button id="yearlyToggle" onclick="toggleBilling('yearly')" class="text-xs font-bold px-4 py-1.5 rounded-full text-zinc-400 hover:text-white transition-all flex items-center gap-1.5">
-                        Yearly <span class="bg-emerald-500/20 text-emerald-400 text-[10px] py-0.5 px-1.5 rounded-full font-black">Save 20%</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Pricing Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
-                <!-- Plan 1 -->
-                <div class="bg-zinc-900/40 border border-zinc-800 p-6 sm:p-8 rounded-3xl flex flex-col justify-between hover:border-zinc-700 transition-all">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h4 class="font-display font-bold text-lg text-zinc-100">Standard Access</h4>
-                                <p class="text-xs text-zinc-500">Perfect for self-motivated fitness enthusiasts</p>
-                            </div>
-                        </div>
-                        <div class="mb-6">
-                            <span class="text-4xl font-display font-black" id="priceBasic">₹1,499</span>
-                            <span class="text-zinc-500 text-xs" id="priceBasicPeriod">/month</span>
-                        </div>
-                        <ul class="space-y-3 mb-8 text-xs text-zinc-300">
-                            <li class="flex items-center gap-2">🟢 Unlimited high-tech gym entry access</li>
-                            <li class="flex items-center gap-2">🟢 Locker room and premium amenities</li>
-                            <li class="flex items-center gap-2">🟢 Free fitness checkup evaluation</li>
-                            <li class="text-zinc-500 flex items-center gap-2">🔴 Personalized dedicated trainer coaching</li>
-                        </ul>
-                    </div>
-                    <button onclick="openBookingModal('Standard Access Plan')" class="w-full bg-zinc-800 hover:bg-zinc-700 text-white font-display font-bold py-3 rounded-xl text-xs transition-all">Select Plan</button>
-                </div>
-
-                <!-- Plan 2 (Featured) -->
-                <div class="bg-zinc-900/90 border-2 border-violet-600 p-6 sm:p-8 rounded-3xl flex flex-col justify-between relative shadow-[0_10px_30px_rgba(139,92,246,0.15)] hover:scale-[1.01] transition-all">
-                    <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-[10px] font-black uppercase tracking-widest px-3.5 py-1 rounded-full shadow-md">Most Popular</span>
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h4 class="font-display font-bold text-lg text-zinc-100">Prime Plus</h4>
-                                <p class="text-xs text-zinc-400">Comprehensive coaching with expert attention</p>
-                            </div>
-                        </div>
-                        <div class="mb-6">
-                            <span class="text-4xl font-display font-black text-violet-400" id="pricePrime">₹2,999</span>
-                            <span class="text-zinc-400 text-xs" id="pricePrimePeriod">/month</span>
-                        </div>
-                        <ul class="space-y-3 mb-8 text-xs text-zinc-300">
-                            <li class="flex items-center gap-2">🟢 Everything in Standard Plan</li>
-                            <li class="flex items-center gap-2">🟢 1-on-1 Certified Personal Trainer</li>
-                            <li class="flex items-center gap-2">🟢 Personalized diet charts & health metrics</li>
-                            <li class="flex items-center gap-2">🟢 Premium steam, recovery and spa services</li>
-                        </ul>
-                    </div>
-                    <button onclick="openBookingModal('Prime Plus Plan')" class="w-full bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white font-display font-bold py-3.5 rounded-xl text-xs shadow-md transition-all">Secure Spot Now</button>
-                </div>
-
-                <!-- Plan 3 -->
-                <div class="bg-zinc-900/40 border border-zinc-800 p-6 sm:p-8 rounded-3xl flex flex-col justify-between hover:border-zinc-700 transition-all">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h4 class="font-display font-bold text-lg text-zinc-100">Absolute Elite</h4>
-                                <p class="text-xs text-zinc-500">Unrestricted limits for peak optimization</p>
-                            </div>
-                        </div>
-                        <div class="mb-6">
-                            <span class="text-4xl font-display font-black" id="priceElite">₹4,999</span>
-                            <span class="text-zinc-500 text-xs" id="priceElitePeriod">/month</span>
-                        </div>
-                        <ul class="space-y-3 mb-8 text-xs text-zinc-300">
-                            <li class="flex items-center gap-2">🟢 Unlimited prime class bookings</li>
-                            <li class="flex items-center gap-2">🟢 Personalized master trainer allocation</li>
-                            <li class="flex items-center gap-2">🟢 Customized premium micro-nutritional bar menu</li>
-                            <li class="flex items-center gap-2">🟢 Biweekly lifestyle medical status checks</li>
-                        </ul>
-                    </div>
-                    <button onclick="openBookingModal('Absolute Elite Plan')" class="w-full bg-zinc-800 hover:bg-zinc-700 text-white font-display font-bold py-3 rounded-xl text-xs transition-all">Select Elite Plan</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Floating AI Coach Icon/Launcher -->
-    <button onclick="toggleAIChat()" id="aiLauncherBtn" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-tr from-violet-600 to-fuchsia-600 hover:scale-110 text-white flex items-center justify-center font-bold shadow-[0_8px_30px_rgba(139,92,246,0.4)] hover:shadow-[0_8px_30px_rgba(139,92,246,0.6)] transition-all">
-        <span class="text-2xl">🤖</span>
-    </button>
-
-    <!-- Advanced AURA AI Coach Window -->
-    <div id="aiChatWindow" class="fixed bottom-24 right-4 sm:right-6 z-50 w-[92vw] sm:w-[400px] h-[550px] bg-zinc-950/95 backdrop-blur-md border border-zinc-800 rounded-3xl shadow-2xl flex flex-col hidden overflow-hidden transition-all duration-300">
-        <!-- Chat Header -->
-        <div class="p-4 bg-zinc-900 border-b border-zinc-800/80 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-violet-600 to-fuchsia-600 flex items-center justify-center text-white text-xs font-bold shadow-md">🤖</div>
-                <div>
-                    <h4 class="font-display font-black text-sm text-zinc-100">AURA AI Performance Coach</h4>
-                    <span class="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Gemini 3.1 Flash Enabled
-                    </span>
-                </div>
-            </div>
-            <button onclick="toggleAIChat()" class="text-zinc-500 hover:text-white transition-colors p-1">
-                ✕
-            </button>
-        </div>
-
-        <!-- Pre-Defined Prompt Shortcuts -->
-        <div class="p-3 bg-zinc-900/30 border-b border-zinc-800/50 flex flex-wrap gap-1.5 overflow-x-auto max-h-20 scrollbar-none">
-            <button onclick="sendPredefined('Build a dynamic 4-day workout plan')" class="text-[10px] bg-zinc-850 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 px-2.5 py-1 rounded-full whitespace-nowrap transition-all">🏋️ Daily Workout</button>
-            <button onclick="sendPredefined('Make a high-protein diet plan using standard Indian food')" class="text-[10px] bg-zinc-850 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 px-2.5 py-1 rounded-full whitespace-nowrap transition-all">🥦 Protein Diet</button>
-            <button onclick="sendPredefined('Suggest tips to reduce body fat fast safely')" class="text-[10px] bg-zinc-850 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 px-2.5 py-1 rounded-full whitespace-nowrap transition-all">🔥 Fat Loss Tips</button>
-            <button onclick="sendPredefined('Explain details about Creatine loading')" class="text-[10px] bg-zinc-850 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 px-2.5 py-1 rounded-full whitespace-nowrap transition-all">🧬 Supplement Info</button>
-        </div>
-
-        <!-- Chat Feed -->
-        <div id="aiChatFeed" class="flex-1 overflow-y-auto p-4 space-y-4">
-            <div class="flex gap-2">
-                <div class="w-6 h-6 rounded-full bg-violet-600 flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">A</div>
-                <div class="p-3 bg-zinc-900 border border-zinc-800 rounded-2xl text-xs text-zinc-300 leading-relaxed ai-chat-bubble">
-                    Namaste! Main hoon **AURA AI**, aapka personalized fitness advisor. Aap mujhse workouts, diet plans ya energy status ke baare mein kuch bhi pooch sakte hain. Kya main aapke liye koi standard query setup karun?
-                </div>
-            </div>
-        </div>
-
-        <!-- Dynamic Typing Indicator -->
-        <div id="aiChatTyping" class="hidden px-4 py-2 bg-zinc-950 flex items-center gap-2 text-xs text-violet-400">
-            <span class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-bounce" style="animation-delay: 0ms"></span>
-            <span class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-bounce" style="animation-delay: 150ms"></span>
-            <span class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-bounce" style="animation-delay: 300ms"></span>
-            <span class="text-[10px] tracking-wider uppercase font-bold text-zinc-500 ml-1">AURA Coach is formulating strategy...</span>
-        </div>
-
-        <!-- Chat Input Footer -->
-        <div class="p-3 bg-zinc-900 border-t border-zinc-800 flex gap-2">
-            <input type="text" id="aiChatInput" onkeypress="handleChatKeypress(event)" placeholder="Ask AURA Coach anything..." class="flex-1 bg-zinc-950 border border-zinc-800 focus:border-violet-500 text-white px-3.5 py-2.5 rounded-xl outline-none text-xs transition-all">
-            <button onclick="sendChatMessage()" class="bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center shadow-md">
-                Send
-            </button>
-        </div>
-    </div>
-
-    <!-- Booking / Lead Capture Modal -->
-    <div id="bookingModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-zinc-900 border border-zinc-800 p-6 sm:p-8 rounded-3xl w-full max-w-md shadow-2xl relative">
-            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-zinc-500 hover:text-white transition-colors">
-                ✕
-            </button>
-            
-            <h3 class="text-2xl font-display font-black mb-1">Claim VIP Entry Pass</h3>
-            <p class="text-zinc-400 text-xs sm:text-sm mb-6">Experience premium. Input your info to instantly activate guest access.</p>
-            
-            <form id="bookingForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                <input type="hidden" id="selectedPlan" name="selectedPlan" value="General Query">
-                
-                <div>
-                    <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">Full Name</label>
-                    <input type="text" required placeholder="e.g. Rahul Sharma" class="w-full bg-zinc-950 border border-zinc-800 focus:border-violet-500 focus:ring-1 focus:ring-violet-500 text-white p-3 rounded-xl outline-none text-sm transition-all">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">Mobile Number</label>
-                    <input type="tel" required pattern="[0-9]{10}" placeholder="e.g. 9876543210" class="w-full bg-zinc-950 border border-zinc-800 focus:border-violet-500 focus:ring-1 focus:ring-violet-500 text-white p-3 rounded-xl outline-none text-sm transition-all">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">Preferable Time Slot</label>
-                    <select class="w-full bg-zinc-950 border border-zinc-800 focus:border-violet-500 focus:ring-1 focus:ring-violet-500 text-zinc-300 p-3 rounded-xl outline-none text-sm transition-all">
-                        <option>Early Morning (06:00 AM - 09:00 AM)</option>
-                        <option>Morning (09:00 AM - 12:00 PM)</option>
-                        <option>Evening Rush (05:00 PM - 09:00 PM)</option>
-                    </select>
-                </div>
-
-                <div class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl flex items-center justify-between text-xs text-zinc-400">
-                    <span>Package Focus:</span>
-                    <span id="selectedPlanLabel" class="text-violet-400 font-bold">Standard Pass</span>
-                </div>
-
-                <button type="submit" class="w-full bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white font-display font-bold py-3.5 rounded-2xl text-sm shadow-[0_10px_20px_rgba(139,92,246,0.2)] transition-all">
-                    Register For Guest Slot
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Slide-in Custom Toast Alert System -->
-    <div id="toast" class="fixed bottom-5 right-5 z-[60] bg-zinc-900 border border-emerald-500/30 p-4 rounded-2xl shadow-2xl flex items-start gap-3 max-w-sm translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
-        <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 text-sm">✓</div>
-        <div>
-            <h5 class="text-xs font-black text-white">Registration Complete!</h5>
-            <p class="text-[11px] text-zinc-400 mt-0.5">Your luxury spot is secured. Aura team is contacting you shortly.</p>
-        </div>
-    </div>
-
-    <script>
-        // Database of dynamically toggling training class schedule
-        const classSchedule = {
-            mon: [
-                { title: "Iron Core Conditioning", time: "07:00 AM", coach: "Vikram S.", level: "High Intensity", glow: "border-l-violet-500" },
-                { title: "Elite Speed Boxing", time: "09:30 AM", coach: "Amit Verma", level: "Athletic Build", glow: "border-l-fuchsia-500" },
-                { title: "Kettlebell Precision Flow", time: "06:30 PM", coach: "Priya Sharma", level: "All Levels", glow: "border-l-rose-500" }
-            ],
-            wed: [
-                { title: "Hypertrophy Power Lift", time: "08:00 AM", coach: "Vikram S.", level: "Advanced Only", glow: "border-l-rose-500" },
-                { title: "Fluid Vinyasa Mobility", time: "11:00 AM", coach: "Anjali Dev", level: "Restorative", glow: "border-l-violet-500" },
-                { title: "Metabolic HIIT Engine", time: "07:00 PM", coach: "Prashant K.", level: "High Intensity", glow: "border-l-fuchsia-500" }
-            ],
-            fri: [
-                { title: "Olympic Lifting Skillset", time: "07:00 AM", coach: "Kabir Singh", level: "Intermediate+", glow: "border-l-fuchsia-500" },
-                { title: "Core & Flex Progression", time: "10:30 AM", coach: "Anjali Dev", level: "All Levels", glow: "border-l-violet-500" },
-                { title: "Endurance Spin & Drill", time: "06:00 PM", coach: "Prashant K.", level: "High Intensity", glow: "border-l-rose-500" }
-            ]
-        };
-
-        // Render dynamic schedules
-        function switchDay(day, btn) {
-            // Manage UI states for buttons
-            document.querySelectorAll('.day-tab').forEach(b => {
-                b.classList.remove('bg-violet-600', 'text-white');
-                b.classList.add('text-zinc-400');
-            });
-            btn.classList.add('bg-violet-600', 'text-white');
-            btn.classList.remove('text-zinc-400');
-
-            const container = document.getElementById('scheduleGrid');
-            container.innerHTML = '';
-
-            classSchedule[day].forEach(item => {
-                container.innerHTML += `
-                    <div class="p-5 bg-zinc-900/50 border-l-4 ${item.glow} border-y border-r border-zinc-800 rounded-2xl hover:border-zinc-700 transition-all flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-xs text-zinc-500 font-medium">${item.time}</span>
-                                <span class="text-[10px] bg-zinc-800 px-2.5 py-0.5 rounded-full text-zinc-300 font-bold uppercase tracking-wider">${item.level}</span>
-                            </div>
-                            <h4 class="font-display font-black text-base text-zinc-100 leading-tight mb-2">${item.title}</h4>
-                        </div>
-                        <div class="flex items-center gap-2 mt-4 pt-3 border-t border-zinc-800/60 text-xs text-zinc-400">
-                            <span class="w-1.5 h-1.5 rounded-full bg-violet-400"></span>
-                            <span>Coach: <span class="text-zinc-200 font-semibold">${item.coach}</span></span>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        // BMI logic calculations
-        function calculateBMI() {
-            const height = parseFloat(document.getElementById('bmiHeight').value);
-            const weight = parseFloat(document.getElementById('bmiWeight').value);
-            
-            if (!height || !weight || height <= 0 || weight <= 0) {
-                return; // Guard rail
-            }
-
-            const mHeight = height / 100;
-            const bmi = (weight / (mHeight * mHeight)).toFixed(1);
-            
-            let status = '';
-            let tip = '';
-            let colorClass = '';
-
-            if (bmi < 18.5) {
-                status = 'Underweight';
-                tip = 'We recommend checking out our high-calorie customized nutrition & strength programs.';
-                colorClass = 'text-yellow-400 bg-yellow-400/10 border-yellow-400/20';
-            } else if (bmi >= 18.5 && bmi < 24.9) {
-                status = 'Perfect BMI Index';
-                tip = 'Fantastic status! Join Aura to sculpt high-end premium aesthetics and cardiovascular capabilities.';
-                colorClass = 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20';
-            } else {
-                status = 'Overweight';
-                tip = 'Ready to shred? Our active MetCon cardio HIIT and weight optimization systems are tailored for you.';
-                colorClass = 'text-rose-400 bg-rose-400/10 border-rose-400/20';
-            }
-
-            const resBox = document.getElementById('bmiResultBox');
-            resBox.classList.remove('hidden');
-            
-            document.getElementById('bmiValue').innerText = bmi;
-            
-            const statSpan = document.getElementById('bmiStatus');
-            statSpan.innerText = status;
-            statSpan.className = `inline-block font-display font-bold text-xs px-3 py-1 rounded-lg mt-1 border ${colorClass}`;
-            
-            document.getElementById('bmiTip').innerText = tip;
-            
-            // Clean dynamic AI analysis states when stats are recalculated
-            document.getElementById('aiBmiResult').classList.add('hidden');
-            document.getElementById('aiBmiBtn').classList.remove('hidden');
-        }
-
-        // Leave the key empty as mandated so canvas handles automatic injection at runtime
-        const geminiApiKey = ""; 
-        const geminiModel = "gemini-3-flash-preview";
-        const geminiApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent?key=${geminiApiKey}`;
-
-        // Exponential Backoff API execution handler
-        async function fetchGeminiAPI(promptText, systemInstructionText = "") {
-            const payload = {
-                contents: [{ parts: [{ text: promptText }] }]
-            };
-            if (systemInstructionText) {
-                payload.systemInstruction = {
-                    parts: [{ text: systemInstructionText }]
-                };
-            }
-
-            let delay = 1000;
-            const maxRetries = 3;
-
-            for (let attempt = 1; attempt <= maxRetries; attempt++) {
-                try {
-                    const response = await fetch(geminiApiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        if (response.status === 429 && attempt < maxRetries) {
-                            await new Promise(res => setTimeout(res, delay));
-                            delay *= 2;
-                            continue;
-                        }
-                        throw new Error(`Gemini API Request failed with status ${response.status}`);
-                    }
-
-                    const result = await response.json();
-                    return result?.candidates?.[0]?.content?.parts?.[0]?.text || "Unable to parse AI response. Please try again.";
-                } catch (error) {
-                    if (attempt === maxRetries) {
-                        console.error("Failed to fetch from Gemini after all attempts: ", error);
-                        return "Sorry, I am facing a temporary connectivity issue with our performance server. Please retry in a bit!";
-                    }
-                    await new Promise(res => setTimeout(res, delay));
-                    delay *= 2;
-                }
-            }
-        }
-
-        // Custom local markdown-to-html formatter for sleek layout renderings
-        function formatMarkdown(text) {
-            return text
-                .replace(/\*\*(.*?)\*\*/g, '<strong class="text-violet-400 font-bold">$1</strong>')
-                .replace(/\*(.*?)\*/g, '<em class="text-zinc-200">$1</em>')
-                .replace(/`([^`]+)`/g, '<code class="bg-zinc-900 border border-zinc-800 text-rose-400 px-1 py-0.5 rounded text-[11px]">$1</code>')
-                .replace(/^\s*-\s+(.*)$/gmu, '<li class="ml-4 list-disc pl-1 mb-1.5 text-zinc-300">$1</li>')
-                .replace(/\n\n/g, '<br/><br/>')
-                .replace(/\n/g, '<br/>');
-        }
-
-        async function getAIBMIAnalysis() {
-            const height = document.getElementById('bmiHeight').value;
-            const weight = document.getElementById('bmiWeight').value;
-            const bmi = document.getElementById('bmiValue').innerText;
-            const status = document.getElementById('bmiStatus').innerText;
-
-            const aiBtn = document.getElementById('aiBmiBtn');
-            const loader = document.getElementById('aiBmiLoader');
-            const resultBox = document.getElementById('aiBmiResult');
-
-            aiBtn.classList.add('hidden');
-            loader.classList.remove('hidden');
-            resultBox.classList.add('hidden');
-
-            const systemPrompt = "Act as an Elite AI Biometric Coach for AURA High-Performance Gym in Jaipur. Your advice should be specific, energetic, highly scientific, professional, and directly actionable. Use bullet points for structural clarity.";
-            const userPrompt = `Develop a targeted 3-day workout layout and localized micro-nutrition advice for a client in Jaipur. Client Stats: Height: ${height}cm, Weight: ${weight}kg, Calculated BMI: ${bmi} (${status}). Address the client directly.`;
-
-            const rawResponse = await fetchGeminiAPI(userPrompt, systemPrompt);
-            const htmlFormatted = formatMarkdown(rawResponse);
-
-            loader.classList.add('hidden');
-            resultBox.innerHTML = htmlFormatted;
-            resultBox.classList.remove('hidden');
-        }
-
-        function toggleAIChat() {
-            const chatWin = document.getElementById('aiChatWindow');
-            chatWin.classList.toggle('hidden');
-            scrollToBottom();
-        }
-
-        function handleChatKeypress(event) {
-            if (event.key === 'Enter') {
-                sendChatMessage();
-            }
-        }
-
-        function scrollToBottom() {
-            const feed = document.getElementById('aiChatFeed');
-            feed.scrollTop = feed.scrollHeight;
-        }
-
-        // Open AURA Coach directly with specific pre-defined prompt action
-        function openAICoach(planType) {
-            const chatWin = document.getElementById('aiChatWindow');
-            chatWin.classList.remove('hidden');
-            
-            if (planType === 'workout_plan') {
-                sendPredefined("Generate an ultra-modern 3-day high-performance strength split split.");
-            } else if (planType === 'diet_plan') {
-                sendPredefined("Suggest an advanced localized high-protein fat-shred Indian meal setup.");
-            }
-        }
-
-        // Trigger dynamic pre-defined queries from quick-links
-        function sendPredefined(promptText) {
-            const input = document.getElementById('aiChatInput');
-            input.value = promptText;
-            sendChatMessage();
-        }
-
-        // Core dynamic Chat sending mechanism
-        async function sendChatMessage() {
-            const input = document.getElementById('aiChatInput');
-            const promptText = input.value.trim();
-            if (!promptText) return;
-
-            // Clear input field instantly
-            input.value = "";
-
-            const feed = document.getElementById('aiChatFeed');
-            
-            // Append User Message to UI Bubble
-            feed.innerHTML += `
-                <div class="flex gap-2 justify-end">
-                    <div class="p-3 bg-violet-600/20 border border-violet-500/30 rounded-2xl text-xs text-zinc-100 leading-relaxed ai-chat-bubble">
-                        ${promptText}
-                    </div>
-                    <div class="w-6 h-6 rounded-full bg-fuchsia-600 flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">Me</div>
-                </div>
-            `;
-            scrollToBottom();
-
-            // Toggle dynamic typing loader indicator
-            const typingIndicator = document.getElementById('aiChatTyping');
-            typingIndicator.classList.remove('hidden');
-            scrollToBottom();
-
-            // Assemble Elite Coaching Persona Instructions
-            const coachingSystemPrompt = "You are AURA AI, an elite futuristic personal trainer and nutritionist at AURA High-Performance Arena in Jaipur. You speak with high authority, deep scientific knowledge, energy, and localized warmth. Keep responses highly customized, structured with bolding/bullets, concise but premium.";
-            
-            const rawResponse = await fetchGeminiAPI(promptText, coachingSystemPrompt);
-            const htmlResponse = formatMarkdown(rawResponse);
-
-            // Hide Typing indicator and render
-            typingIndicator.classList.add('hidden');
-            feed.innerHTML += `
-                <div class="flex gap-2">
-                    <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-violet-600 to-fuchsia-600 flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">A</div>
-                    <div class="p-3 bg-zinc-900 border border-zinc-800 rounded-2xl text-xs text-zinc-300 leading-relaxed ai-chat-bubble">
-                        ${htmlResponse}
-                    </div>
-                </div>
-            `;
-            scrollToBottom();
-        }
-
-        // Interactive toggle values for Membership Packages
-        let currentCycle = 'monthly';
-        const pricingData = {
-            monthly: { basic: "₹1,499", prime: "₹2,999", elite: "₹4,999", suffix: "/month" },
-            yearly: { basic: "₹1,199", prime: "₹2,399", elite: "₹3,999", suffix: "/month (billed annually)" }
-        };
-
-        function toggleBilling(type) {
-            currentCycle = type;
-            const mBtn = document.getElementById('monthlyToggle');
-            const yBtn = document.getElementById('yearlyToggle');
-
-            if (type === 'monthly') {
-                mBtn.classList.add('bg-zinc-800', 'text-white');
-                mBtn.classList.remove('text-zinc-400');
-                yBtn.classList.add('text-zinc-400');
-                yBtn.classList.remove('bg-zinc-800', 'text-white');
-            } else {
-                yBtn.classList.add('bg-zinc-800', 'text-white');
-                yBtn.classList.remove('text-zinc-400');
-                mBtn.classList.add('text-zinc-400');
-                mBtn.classList.remove('bg-zinc-800', 'text-white');
-            }
-
-            document.getElementById('priceBasic').innerText = pricingData[type].basic;
-            document.getElementById('priceBasicPeriod').innerText = pricingData[type].suffix;
-            
-            document.getElementById('pricePrime').innerText = pricingData[type].prime;
-            document.getElementById('pricePrimePeriod').innerText = pricingData[type].suffix;
-            
-            document.getElementById('priceElite').innerText = pricingData[type].elite;
-            document.getElementById('priceElitePeriod').innerText = pricingData[type].suffix;
-        }
-
-        // Modal Action Scripts
-        function openBookingModal(planName) {
-            document.getElementById('selectedPlan').value = planName;
-            document.getElementById('selectedPlanLabel').innerText = planName;
-            
-            const modal = document.getElementById('bookingModal');
-            modal.classList.remove('hidden');
-        }
-
-        function closeBookingModal() {
-            const modal = document.getElementById('bookingModal');
-            modal.classList.add('hidden');
-        }
-
-        // Handles secure form submissions dynamically
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            closeBookingModal();
-            
-            // Trigger customized local Toast
-            const toast = document.getElementById('toast');
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            toast.classList.add('translate-y-0', 'opacity-100');
-            
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 5000);
-        }
-
-        // Initial Boot Setup
-        window.onload = function() {
-            switchDay('mon', document.querySelector('.day-tab'));
-        }
-    </script>
 </body>
 </html>
